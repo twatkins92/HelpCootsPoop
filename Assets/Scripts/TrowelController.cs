@@ -9,7 +9,9 @@ public class TrowelController : MonoBehaviour
     public bool useLerpForTrowelMovement = true;
     public float trowelMoveSpeedNormal = 4.0f;
     public float trowelMoveSpeedAiming = 2.0f;
+
     public float trowelDistanceFromCamera = 2.0f;
+    public float trowelDrawPathDistanceFromCamera = 20f;
 
     private bool aiming = false;
 
@@ -26,9 +28,9 @@ public class TrowelController : MonoBehaviour
     {
         HandleTrowelMovement();
         HandleAiming();
-        HandleFlick();
+        //HandleFlick();
     }
-    
+
     void HandleTrowelMovement()
     {
         Vector3 mousePos = Input.mousePosition;
@@ -46,7 +48,7 @@ public class TrowelController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             aiming = true;
-            //set cameras in camera controller
+            CameraController.Instance.AimCamera();
         }
         else if (aiming && Input.GetKeyUp(KeyCode.Mouse1))
         {
@@ -71,9 +73,13 @@ public class TrowelController : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray.origin, ray.direction, out hit, trowelDistanceFromCamera))
+        float distance = Input.GetKey(KeyCode.Mouse0) ? trowelDrawPathDistanceFromCamera : trowelDistanceFromCamera;
+
+        if (Physics.Raycast(ray.origin, ray.direction, out hit, distance))
         {
-           worldPos = hit.point;
+            Debug.Log("hit: " + hit.collider.gameObject.name);
+            worldPos = hit.point;
+            //add offset so only tip is submerged
         }
         else
         {
