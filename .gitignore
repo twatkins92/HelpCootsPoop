@@ -68,7 +68,7 @@ $RECYCLE.BIN/
 *.lnk
 /Assets/Sounds.meta
 /Assets/Textures.meta
-tags
+./tags
 
 *.blend1
 *.blend1.meta
