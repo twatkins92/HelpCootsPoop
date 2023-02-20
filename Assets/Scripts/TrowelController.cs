@@ -15,12 +15,15 @@ public class TrowelController : MonoBehaviour
 
     private bool aiming = false;
 
+    private Vector3 positionTarget;
+
     // Start is called before the first frame update
     void Start()
     {
         //might not need to be confined
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
+        positionTarget = this.transform.position;
     }
 
     // Update is called once per frame
@@ -28,14 +31,22 @@ public class TrowelController : MonoBehaviour
     {
         HandleTrowelMovement();
         HandleAiming();
-        //HandleFlick();
     }
 
     void HandleTrowelMovement()
     {
-        Vector3 mousePos = Input.mousePosition;
-        Vector3 newTrowelPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, this.transform.position.z);
-        newTrowelPosition = WorldPosWithRange();
+        Vector3 newTrowelPosition;
+
+        if (Input.GetAxis("Mouse Y") == 0 && Input.GetAxis("Mouse X") == 0)
+        {
+            newTrowelPosition = positionTarget;    
+        }
+        else
+        {
+            newTrowelPosition = WorldPosWithRange();
+            positionTarget = newTrowelPosition;
+        }
+
         float speed = aiming ? trowelMoveSpeedAiming : trowelMoveSpeedNormal;
         if (useLerpForTrowelMovement)
             trowel.transform.position = Vector3.Lerp(trowel.transform.position, newTrowelPosition, speed * Time.deltaTime);
@@ -57,15 +68,6 @@ public class TrowelController : MonoBehaviour
         }
     }
 
-    void HandleFlick()
-    {
-        if (aiming && Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            //play animation
-            //do flick
-        }
-    }
-
     private Vector3 WorldPosWithRange()
     {
         Vector3 worldPos;
@@ -79,6 +81,7 @@ public class TrowelController : MonoBehaviour
         {
             Debug.Log("hit: " + hit.collider.gameObject.name);
             worldPos = hit.point;
+            // if other game objkect is drawable then deform/draw line
             //add offset so only tip is submerged
         }
         else
