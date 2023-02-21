@@ -16,13 +16,29 @@ public class MeshClicker : MonoBehaviour
         //Brush is a rotated cube but we need the bounding box in world space
         public Vector3 MinBound()
         {
-            return new Vector3((centre - direction - right).x, -10, (centre - direction + right).z);
+            var side1 = centre - direction - right;
+            var side2 = centre - direction + right;
+            var side3 = centre + direction - right;
+            var side4 = centre + direction + right;
+            return new Vector3(
+                Mathf.Min(side1.x, side2.x, side3.x, side4.x),
+                -10,
+                Mathf.Min(side1.z, side2.z, side3.z, side4.z)
+            );
         }
 
         //Brush is a rotated cube but we need the bounding box in world space
         public Vector3 MaxBound()
         {
-            return new Vector3((centre + direction + right).x, 10, (centre + direction - right).z);
+            var side1 = centre - direction - right;
+            var side2 = centre - direction + right;
+            var side3 = centre + direction - right;
+            var side4 = centre + direction + right;
+            return new Vector3(
+                Mathf.Max(side1.x, side2.x, side3.x, side4.x),
+                10,
+                Mathf.Max(side1.z, side2.z, side3.z, side4.z)
+            );
         }
     }
 
@@ -42,37 +58,80 @@ public class MeshClicker : MonoBehaviour
 
     private KDQuery query = new KDQuery();
 
+    private List<Vector3> drawnPoints = new List<Vector3>();
+
     void Start()
     {
-        // Set the shared mesh of the mesh collider with the generated mesh
         mesh = GetComponent<MeshFilter>().mesh;
         meshCollider = GetComponent<MeshCollider>();
         meshCollider.sharedMesh = mesh;
         kdTree = GetComponent<KDT>();
     }
 
-    // TODO replace with OnMouse; event to raise vertices should only happen when the mouse moves a certain distance though
-    void OnMouseDown()
+    void OnMouseOver()
     {
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (meshCollider.Raycast(ray, out hit, Mathf.Infinity))
+        if (Input.GetMouseButton(0))
         {
-            int nearestVertexIndex = FindNearestVertex(hit.point);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            // TODO Rather than just face forward, face the direction the mouse is being dragged
-            // Make sure it is normalised
-            Vector3 forwardDirection = Vector3.forward;
-            Vector3 rightDirection = Quaternion.Euler(0, 90, 0) * forwardDirection.normalized;
+            float intersectDistance = default;
+            new Plane(Vector3.up, Vector3.zero).Raycast(ray, out intersectDistance);
+            Vector3 zeroedIntersectPoint = ray.origin + ray.direction * intersectDistance;
 
-            Brush brush = new Brush
+            if (
+                drawnPoints.Count > 0
+                && Vector3.Distance(zeroedIntersectPoint, drawnPoints[^1]) < 0.1f
+            )
+                return;
+
+            if (drawnPoints.Count == 0)
             {
-                centre = mesh.vertices[nearestVertexIndex],
-                direction = Vector3.forward * (brushLength / 2),
-                right = rightDirection * (brushWidth / 2)
-            };
-            RaiseVertices(brush);
+                drawnPoints.Add(zeroedIntersectPoint);
+            }
+            else
+            {
+                int startIndex = drawnPoints.Count - 1;
+                Vector3 diff = (zeroedIntersectPoint - drawnPoints[^1]);
+                float distance = diff.magnitude;
+                int numMidPoints = Mathf.FloorToInt(distance / (0.4f * brushLength));
+                Vector3 nextPoint = drawnPoints[startIndex];
+                for (int i = 0; i < numMidPoints; i++)
+                {
+                    nextPoint += 0.4f * brushLength * diff.normalized;
+                    drawnPoints.Add(nextPoint);
+                }
+                drawnPoints.Add(zeroedIntersectPoint);
+
+                for (int i = startIndex + 1; i < drawnPoints.Count; i++)
+                {
+                    //Vector3 centre = (drawnPoints[^1] + drawnPoints[^2]) / 2;
+                    Vector3 centre = drawnPoints[i];
+
+                    int nearestVertexIndex = FindNearestVertex(centre);
+
+                    // TODO Rather than just face forward, face the direction the mouse is being dragged
+                    // Make sure it is normalised
+                    Vector3 forwardDirection = (drawnPoints[i] - drawnPoints[i - 1]).normalized;
+                    Vector3 rightDirection =
+                        Quaternion.Euler(0, 90, 0) * forwardDirection.normalized;
+
+                    Brush brush = new Brush
+                    {
+                        centre = mesh.vertices[nearestVertexIndex],
+                        direction = forwardDirection * (brushLength / 2),
+                        right = rightDirection * (brushWidth / 2)
+                    };
+                    RaiseVertices(brush);
+                }
+            }
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
+            drawnPoints.Clear();
         }
     }
 
@@ -80,7 +139,6 @@ public class MeshClicker : MonoBehaviour
     {
         kdTreeResults.Clear();
         query.ClosestPoint(kdTree.kdTree, point, kdTreeResults);
-        Debug.Log("Closest: " + kdTreeResults[0]);
         return kdTreeResults[0];
     }
 
@@ -89,17 +147,18 @@ public class MeshClicker : MonoBehaviour
         vertices = mesh.vertices;
 
         kdTreeResults.Clear();
+
         query.Interval(kdTree.kdTree, brush.MinBound(), brush.MaxBound(), kdTreeResults);
-        Debug.Log(brush.MinBound());
-        Debug.Log(brush.MaxBound());
-        Debug.Log(kdTreeResults.Count);
-        Debug.DrawRay(brush.MinBound().Horizontal(), Vector3.up, Color.blue, 10f);
-        Debug.DrawRay(brush.MaxBound().Horizontal(), Vector3.up, Color.blue, 10f);
 
         for (int i = 0; i < kdTreeResults.Count; i++)
         {
             SetVertexHeight(kdTreeResults[i], brush);
         }
+
+        /*for (int i = 0; i < kdTreeResults.Count; i++)
+        {
+            SmoothVertex(kdTreeResults[i]);
+        }*/
 
         mesh.vertices = vertices;
         mesh.RecalculateNormals();
@@ -108,29 +167,56 @@ public class MeshClicker : MonoBehaviour
 
     void SetVertexHeight(int vertexIndex, Brush brush)
     {
-        Debug.Log(vertexIndex);
         Vector3 vertex = vertices[vertexIndex];
         Vector3 difference = vertex - brush.centre;
 
         float directionDistance = Vector3.Project(difference, brush.direction).magnitude;
         float sideDistance = Vector3.Project(difference, brush.right).magnitude;
 
-        if (directionDistance <= brushLength / 2f && sideDistance <= brushWidth / 2f)
+        if (directionDistance <= brushLength / 2 && sideDistance <= brushWidth / 2)
         {
             vertices[vertexIndex] = new Vector3(
                 vertex.x,
-                GetVertexHeight(directionDistance, sideDistance),
+                GetVertexHeight(vertex.y, directionDistance, sideDistance),
                 vertex.z
             );
         }
     }
 
-    float GetVertexHeight(float directionDistance, float sideDistance)
+    float GetVertexHeight(float prevHeight, float directionDistance, float sideDistance)
     {
-        float directionRatio = directionDistance / brushLength;
-        float sideRatio = sideDistance / brushWidth;
+        float directionRatio = directionDistance / (brushLength / 2);
+        float sideRatio = sideDistance / (brushWidth / 2);
 
-        return brushDirectionFallOff.Evaluate(directionRatio)
-            * brushSideFallOff.Evaluate(sideRatio);
+        float sideHeight = brushSideFallOff.Evaluate(sideRatio);
+        float directionHeight = brushDirectionFallOff.Evaluate(directionRatio);
+
+        float heightNoBlend = sideHeight * directionHeight;
+
+        if (heightNoBlend < 0)
+            return Mathf.Min(prevHeight, heightNoBlend);
+        else
+            return Mathf.Max(prevHeight, heightNoBlend);
     }
+    /*void SmoothVertex(int index)
+    {
+        // Get the neighboring vertices of the vertex to be moved
+        int[] neighborIndices = mesh.GetTriangles(index);
+        Vector3[] neighbors = ;
+        for (int i = 0; i < neighborIndices.Length; i++)
+        {
+            neighbors[i] = vertices[neighborIndices[i]];
+        }
+
+        // Calculate the average position of the neighboring vertices
+        Vector3 averagePosition = Vector3.zero;
+        for (int i = 0; i < neighbors.Length; i++)
+        {
+            averagePosition += neighbors[i];
+        }
+        averagePosition /= neighbors.Length;
+
+        // Move the vertex towards the average position
+        vertices[index] = Vector3.Lerp(vertices[index], averagePosition, 0.5f);
+    }*/
 }

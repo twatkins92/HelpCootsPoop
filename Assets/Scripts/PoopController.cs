@@ -9,9 +9,10 @@ public class PoopController : MonoBehaviour
 
     public void ClearPoop()
     {
-       poopsCleared_so.Value += 1; 
-       //trigger poop cleared animation
-       StartCoroutine(WaitFor(2, () => { Destroy(this.gameObject); }));
+        GetComponentInChildren<MeshCollider>().enabled = false;
+        poopsCleared_so.Value += 1; 
+        //trigger poop cleared animation
+        StartCoroutine(WaitFor(2, () => { Destroy(this.gameObject); }));
     }
 
     private static IEnumerator WaitFor(int seconds, Action action)
