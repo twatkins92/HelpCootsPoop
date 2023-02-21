@@ -1,18 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PoopController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public IntVariable poopsCleared_so;
+
+    public void ClearPoop()
     {
-        
+       poopsCleared_so.Value += 1; 
+       //trigger poop cleared animation
+       StartCoroutine(WaitFor(2, () => { Destroy(this.gameObject); }));
     }
 
-    // Update is called once per frame
-    void Update()
+    private static IEnumerator WaitFor(int seconds, Action action)
     {
-        
+        yield return new WaitForSeconds(seconds);
+        action.Invoke();
     }
 }
