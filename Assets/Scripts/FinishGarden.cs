@@ -15,7 +15,7 @@ public class FinishGarden : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Time.timeScale == 1 && Input.GetKeyDown(KeyCode.Return))
         {
             //calculate score
             //trigger coots animator
