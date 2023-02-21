@@ -44,9 +44,9 @@ public class Menus : MonoBehaviour
     {
         //TODO - Change the main menu!
         var ui = uiSettings
-            .MakeUi(AnchorUtil.BottomLeft(40, 40))
+            .MakeUi(AnchorUtil.Centre(0, -200))
             .AddChildren(
-                uiSettings.Title("Game Name"),
+                uiSettings.Title("Cat Litter Dry Garden"),
                 uiSettings.Button("Play", () => Transitions.Start("SimpleFade", "Game")),
                 uiSettings.Button("Options", () => OptionsMenu(() => { })),
                 uiSettings.Button("Quit", () => Application.Quit())
@@ -64,7 +64,7 @@ public class Menus : MonoBehaviour
                 uiSettings.Button("Resume", () => pause.Unpause()),
                 uiSettings.Button("Options", () => OptionsMenu(() => { })),
                 uiSettings.Button(
-                    "Return to Menu",
+                    "Main Menu",
                     () =>
                     {
                         Time.timeScale = 1;

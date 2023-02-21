@@ -12,26 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716ff468559913845aa33e4d6902911e, type: 3}
   m_Name: UI Settings
   m_EditorClassIdentifier: 
-  titleAlignment: 4097
-  titleFont: {fileID: 0}
-  titleForeground: {r: 1, g: 1, b: 1, a: 1}
-  titleSize: 32
+  titleAlignment: 4098
+  titleFont: {fileID: 11400000, guid: 6f233ac2c1d75c04282aeda1220654c8, type: 2}
+  titleForeground: {r: 0, g: 0, b: 0, a: 1}
+  titleSize: 256
+  titleTopmargin: 8
   titleBottomMargin: 8
   textAligntment: 4097
-  textFont: {fileID: 0}
+  textFont: {fileID: 11400000, guid: aba55ad5f4785914da7edc1b6ad357e0, type: 2}
   textForeground: {r: 1, g: 1, b: 1, a: 1}
-  textSize: 24
-  panelBackground: {r: 0, g: 0, b: 0, a: 1}
+  textSize: 78
+  panelBackground: {r: 0, g: 0, b: 0, a: 0}
   panelSprite: {fileID: 0}
+  panelMaterial: {fileID: 0}
   padding: 20
-  verticalSpacing: 4
+  verticalSpacing: 20
   minTextWidgetDistance: 20
-  buttonAlignment: 0
-  buttonBackground: {r: 0.9, g: 0.9, b: 0.9, a: 1}
+  buttonAlignment: 4
+  buttonBackground: {r: 1, g: 0, b: 0.90270615, a: 0}
   buttonForeground: {r: 0, g: 0, b: 0, a: 1}
-  buttonSprite: {fileID: 0}
-  buttonPadding: 4
-  overrideButtonSize: {x: 0, y: 0}
+  buttonHighlight: {r: 0.8632076, g: 0.898201, b: 1, a: 1}
+  buttonSprite: {fileID: 21300000, guid: a3f5ee6c4f565cd4ab73305f14127dbe, type: 3}
+  buttonPadding: {x: 4, y: 4, z: 4, w: 4}
+  overrideButtonSize: {x: 700, y: 70}
   toggleSize: {x: 20, y: 20}
   toggleSprite: {fileID: 0}
   toggleBackground: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -43,5 +46,21 @@ MonoBehaviour:
   sliderFillSprite: {fileID: 0}
   sliderHandle: {r: 1, g: 1, b: 1, a: 1}
   sliderHandleSprite: {fileID: 0}
+  sliderDisplayedValueWidth: 50
   sliderSize: {x: 100, y: 15}
   sliderHandleSize: {x: 15, y: 15}
+  scrollbarBackground: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  scrollbarSprite: {fileID: 0}
+  scrollbarHandle: {r: 1, g: 1, b: 1, a: 1}
+  scrollbarHandleSprite: {fileID: 0}
+  scrollbarWidth: 20
+  scrollbarInnerPadding: 0
+  viewport:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  cameraBackground: {r: 0, g: 0, b: 0, a: 0}
+  screenSizeScaleReference: {x: 1920, y: 1080}
+  widthToHeightScaling: 0
