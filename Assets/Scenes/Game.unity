@@ -346,6 +346,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6140642033360175049, guid: 99eab366e791b974aa7af7e4d4ab1d68, type: 3}
+      propertyPath: useLerpForTrowelMovement
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6140642033360175050, guid: 99eab366e791b974aa7af7e4d4ab1d68, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -389,6 +393,30 @@ PrefabInstance:
     - target: {fileID: 6140642033360175050, guid: 99eab366e791b974aa7af7e4d4ab1d68, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140642034190152997, guid: 99eab366e791b974aa7af7e4d4ab1d68, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.2851658
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140642034190152997, guid: 99eab366e791b974aa7af7e4d4ab1d68, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.028153103
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140642034190152997, guid: 99eab366e791b974aa7af7e4d4ab1d68, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.008380029
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140642034689372735, guid: 99eab366e791b974aa7af7e4d4ab1d68, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.2851658
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140642034689372735, guid: 99eab366e791b974aa7af7e4d4ab1d68, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.028153103
+      objectReference: {fileID: 0}
+    - target: {fileID: 6140642034689372735, guid: 99eab366e791b974aa7af7e4d4ab1d68, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.008380029
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99eab366e791b974aa7af7e4d4ab1d68, type: 3}
