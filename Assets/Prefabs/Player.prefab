@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6140642033360175050}
   - component: {fileID: 6140642033360175049}
   - component: {fileID: 5425382161113297938}
+  - component: {fileID: 1519154830}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -69,6 +70,19 @@ MonoBehaviour:
   defaultCam: {fileID: 6140642034689372728}
   aimCam: {fileID: 6140642034816542310}
   defaultBlendTime: 2
+--- !u!114 &1519154830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6140642033360175048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 819465e901e5bab4cbc797afd267fef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poopsCleared_so: {fileID: 11400000, guid: dab1725fcb02d0e49914b3c6b6cb6b67, type: 2}
 --- !u!1 &6140642034003321459
 GameObject:
   m_ObjectHideFlags: 0

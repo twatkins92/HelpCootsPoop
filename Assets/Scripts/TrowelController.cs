@@ -79,8 +79,10 @@ public class TrowelController : MonoBehaviour
 
         if (Physics.Raycast(ray.origin, ray.direction, out hit, distance))
         {
-            Debug.Log("hit: " + hit.collider.gameObject.name);
             worldPos = hit.point;
+
+            PoopController poopController = hit.collider.gameObject.GetComponentInParent<PoopController>();
+            if (poopController != null) poopController.ClearPoop();
             // if other game objkect is drawable then deform/draw line
             //add offset so only tip is submerged
         }
