@@ -12,6 +12,7 @@ public class MeshGenerator : MonoBehaviour
     {
         // Create the mesh
         Mesh mesh = new Mesh();
+        mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
         GetComponent<MeshFilter>().mesh = mesh;
 
         // Add the MeshRenderer component and assign the material
@@ -71,6 +72,8 @@ public class MeshGenerator : MonoBehaviour
                 triangles[quadIndex * 6 + 5] = vertexIndex + resolution + 1;
             }
         }
+
+        Debug.Log(vertices.Length);
 
         // Assign the arrays to the mesh
         mesh.vertices = vertices;
