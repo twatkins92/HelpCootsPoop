@@ -316,6 +316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: 95703b29f49b899499233ea7308bb800, type: 3}
   BlockCount: 128
+  camera: {fileID: 1438735259}
 --- !u!1 &1835547185
 GameObject:
   m_ObjectHideFlags: 0
