@@ -9,9 +9,11 @@ namespace Assets.Pixelation.Scripts
         [Range(64.0f, 512.0f)]
         public float BlockCount = 128;
 
+        public Camera camera;
+
         private void OnRenderImage(RenderTexture source, RenderTexture destination)
         {
-            float k = Camera.main.aspect;
+            float k = camera.aspect;
             Vector2 count = new Vector2(BlockCount, BlockCount / k);
             Vector2 size = new Vector2(1.0f / count.x, 1.0f / count.y);
             //
