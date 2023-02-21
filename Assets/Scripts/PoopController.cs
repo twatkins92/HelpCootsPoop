@@ -3,21 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoopController : MonoBehaviour
+public class PoopController : Diggable
 {
     public IntVariable poopsCleared_so;
+    public float clearRange = 0.1f;
 
     public void ClearPoop()
     {
         GetComponentInChildren<MeshCollider>().enabled = false;
-        poopsCleared_so.Value += 1; 
+        poopsCleared_so.Value += 1;
         //trigger poop cleared animation
-        StartCoroutine(WaitFor(2, () => { Destroy(this.gameObject); }));
+        this.DoAfter(2, () => Destroy(this.gameObject));
     }
 
-    private static IEnumerator WaitFor(int seconds, Action action)
+    public override void TryDig(Vector3 vector)
     {
-        yield return new WaitForSeconds(seconds);
-        action.Invoke();
+        if (Vector3.Distance(vector.Horizontal(), transform.position.Horizontal()) < clearRange)
+        {
+            ClearPoop();
+        }
     }
 }
