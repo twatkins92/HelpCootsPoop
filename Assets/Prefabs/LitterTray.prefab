@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2512923742096368867}
+  - component: {fileID: 1978687817}
   m_Layer: 0
   m_Name: LitterTray
   m_TagString: Untagged
@@ -32,6 +33,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1978687817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4826888469231630877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5c89ba063686ad4c9c9b1fb42f03132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minNumberOfPoops: 5
+  maxNumberOfPoops: 20
+  rotationRange: 180
+  scaleRange: {x: 1, y: 1, z: 1}
+  poopPrefab: {fileID: 776133189407946464, guid: 8f32c4df1d36c18458f2ff3058fa91e6, type: 3}
 --- !u!1001 &2236344458591525714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45,15 +63,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c39d3f280c1d694695ee408c04ecf3b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.8107998
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c39d3f280c1d694695ee408c04ecf3b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.69635916
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c39d3f280c1d694695ee408c04ecf3b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.6416154
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c39d3f280c1d694695ee408c04ecf3b, type: 3}
       propertyPath: m_LocalRotation.w
