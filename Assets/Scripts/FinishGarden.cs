@@ -11,16 +11,22 @@ public class FinishGarden : MonoBehaviour
     public UISettings uiSettings;
 
     private RectTransform currentUI;
-    private string CootsMood = "Happy";
+    private CootsAnimationController.CootsMood cootsMood;
 
     private CootsAnimationController cootsAnimationController;
 
     private bool finished = false;
     private bool finishing = false;
 
+    private Dictionary<CootsAnimationController.CootsMood, List<string>> cootsMoodToStringList = new Dictionary<CootsAnimationController.CootsMood, List<string>>();
+
     void Start()
     {
         cootsAnimationController = FindObjectOfType<CootsAnimationController>();
+
+        cootsMoodToStringList.Add(CootsAnimationController.CootsMood.NEUTRAL, neutralSynonyms);
+        cootsMoodToStringList.Add(CootsAnimationController.CootsMood.NAP, napSynonyms);
+        cootsMoodToStringList.Add(CootsAnimationController.CootsMood.SCREAM, screamSynonyms);
     }
 
     // Update is called once per frame
@@ -30,6 +36,7 @@ public class FinishGarden : MonoBehaviour
         {
             //calculate score
             Debug.Log("score is : " + poopsCleared_so.Value);
+            cootsMood = CootsAnimationController.CootsMood.NEUTRAL;
             //then ruin next animation based on happiness
             CameraController.Instance.AimCamera();
             cootsAnimationController.SetCootsMoving(true);
@@ -74,7 +81,7 @@ public class FinishGarden : MonoBehaviour
             .AddChildren(
                 uiSettings.Text("You've completed your garden"),
                 uiSettings.Text("Coots can poop freely"),
-                uiSettings.Text("Coots seems to be " + CootsMood)
+                uiSettings.Text("Coots seems to be " + GetRandomStringFromList(cootsMoodToStringList[cootsMood]))
             );
 
         currentUI = ui;
@@ -105,4 +112,15 @@ public class FinishGarden : MonoBehaviour
             currentUI = null;
         }
     }
+
+    private string GetRandomStringFromList(List<string> list)
+    {
+        return list[Random.Range(0, list.Count*10)/10];
+    }
+
+    private static readonly List<string> napSynonyms = new List<string> { "contented", "at one with himself", "on cloud nine", "as peaceful as could be", "ready for a nap" }; 
+
+    private static readonly List<string> neutralSynonyms = new List<string> { "neither here no there", "contemplating something greater", "done with your presence", "shy, so turn around" };
+
+    private static readonly List<string> screamSynonyms = new List<string> { "displeased", "disgusted" };
 }
