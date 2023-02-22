@@ -34,6 +34,9 @@ public class FinishGarden : MonoBehaviour
             CameraController.Instance.AimCamera();
             cootsAnimationController.SetCootsMoving(true);
             finishing = true;
+
+            TrowelController trowel = FindObjectOfType<TrowelController>();
+            if (trowel != null) Destroy(trowel);
         }
 
         if (finishing && !finished) FinishGame();
@@ -71,7 +74,7 @@ public class FinishGarden : MonoBehaviour
             .AddChildren(
                 uiSettings.Text("You've completed your garden"),
                 uiSettings.Text("Coots can poop freely"),
-                uiSettings.Text("Poops seems to be " + CootsMood)
+                uiSettings.Text("Coots seems to be " + CootsMood)
             );
 
         currentUI = ui;
@@ -87,6 +90,9 @@ public class FinishGarden : MonoBehaviour
                 uiSettings.Button("Play Again", () => Transitions.Start("SimpleFade", "Game")),
                 uiSettings.Button("Quit", () => Application.Quit())
             );
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         currentUI = ui;
     }

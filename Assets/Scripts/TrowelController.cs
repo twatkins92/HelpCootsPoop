@@ -30,7 +30,6 @@ public class TrowelController : MonoBehaviour
     void Update()
     {
         HandleTrowelMovement();
-        HandleAiming();
     }
 
     void HandleTrowelMovement()

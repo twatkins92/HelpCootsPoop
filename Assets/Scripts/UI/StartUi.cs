@@ -26,7 +26,13 @@ public class StartUi : MonoBehaviour
         var ui = uiSettings
             .MakeUi(AnchorUtil.Centre(uiXPos, uiYPos))
             .AddChildren(
-                    uiSettings.Text(""),
+                    uiSettings.Text("Coots is currently feeling Spaced Out"),
+                    uiSettings.Text("With your help clean"),
+                    uiSettings.Text("and"),
+                    uiSettings.Text("create a zen litter garden"),
+                    uiSettings.Text("To find the perfect mood for him to Poop"),
+                    uiSettings.Text("Click to drag"),
+                    uiSettings.Text("Press [Enter] when satisfied with your creation"),
                     uiSettings.Button("Start to Scoop!", () => ClearStartUI())
             );
 
