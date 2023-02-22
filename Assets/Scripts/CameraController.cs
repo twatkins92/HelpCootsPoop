@@ -31,6 +31,7 @@ public class CameraController : MonoBehaviour
     {
         if (activeCamera != null) activeCamera.gameObject.SetActive(false);
         aimCam.gameObject.SetActive(true);
+        Camera.main.orthographic = false;
         activeCamera = aimCam;
     }
 }

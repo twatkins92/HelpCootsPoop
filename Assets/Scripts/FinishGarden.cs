@@ -94,7 +94,7 @@ public class FinishGarden : MonoBehaviour
         var ui = uiSettings
             .MakeUi(AnchorUtil.BottomCentre(uiYPos))
             .AddChildren(
-                uiSettings.Button("Play Again", () => Transitions.Start("SimpleFade", "Game")),
+                uiSettings.Button("Play Again", () => Transitions.Start("SimpleFade", "End2End")),
                 uiSettings.Button("Quit", () => Application.Quit())
             );
 
