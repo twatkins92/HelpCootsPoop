@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrowelController : MonoBehaviour
+public class TrowelController : Digger
 {
     public GameObject trowel;
 
@@ -20,6 +20,7 @@ public class TrowelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        base.Start();
         //might not need to be confined
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
@@ -30,6 +31,7 @@ public class TrowelController : MonoBehaviour
     void Update()
     {
         HandleTrowelMovement();
+        if (Input.GetMouseButton(0)) Dig();
     }
 
     void HandleTrowelMovement()
@@ -79,17 +81,11 @@ public class TrowelController : MonoBehaviour
         if (Physics.Raycast(ray.origin, ray.direction, out hit, distance))
         {
             worldPos = hit.point;
-
-            PoopController poopController = hit.collider.gameObject.GetComponentInParent<PoopController>();
-            if (poopController != null) poopController.ClearPoop();
-            // if other game objkect is drawable then deform/draw line
-            //add offset so only tip is submerged
         }
         else
         {
             Vector3 mousePos = Input.mousePosition;
             worldPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, trowelDistanceFromCamera));
-
         }
 
         return worldPos;
