@@ -52,6 +52,8 @@ public class MeshClicker : Diggable
     private MeshCollider meshCollider;
     private Vector3[] vertices;
 
+    private AphorismsUi aphorismsUi;
+
     // KDTree basically let's us find near vertices without looping through them all
     private KDT kdTree;
     private List<int> kdTreeResults = new List<int>();
@@ -66,6 +68,7 @@ public class MeshClicker : Diggable
         meshCollider = GetComponent<MeshCollider>();
         meshCollider.sharedMesh = mesh;
         kdTree = GetComponent<KDT>();
+        aphorismsUi = FindObjectOfType<AphorismsUi>();
     }
 
     public override void TryDig(Vector3 vector)
@@ -114,6 +117,9 @@ public class MeshClicker : Diggable
                     right = rightDirection * (brushWidth / 2)
                 };
                 RaiseVertices(brush);
+
+                //sorry for this jank call in lol
+                if (aphorismsUi != null) aphorismsUi.ShowAphorism();
             }
         }
     }
