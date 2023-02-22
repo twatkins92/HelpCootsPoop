@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 338504691108756503}
   - component: {fileID: 338504691108756496}
+  - component: {fileID: 105450179}
   m_Layer: 0
   m_Name: cat
   m_TagString: Untagged
@@ -53,6 +54,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &105450179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338504691108756497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f801eb1d73aa7d4419b92c31893594fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 338504691108756496}
+  meshRenderer: {fileID: 8098287650902901716}
+  napMaterial: {fileID: 2100000, guid: a9128241fb33e1543b661d99f8a11770, type: 2}
+  neutralMaterial: {fileID: 2100000, guid: aac29cb317314944aa3878e37ff1c8e6, type: 2}
+  screamMaterial: {fileID: 2100000, guid: 23a50a92eb731a249918d0cabfb0100d, type: 2}
+  targetPos: {fileID: 0}
+  speed: 0.5
+  moving: 0
 --- !u!1001 &338504692720731722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -120,10 +141,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: POFFLE2rigged
       objectReference: {fileID: 0}
+    - target: {fileID: 8417361359673230750, guid: 1b1adc0377535b24cb365987794f44e9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: aac29cb317314944aa3878e37ff1c8e6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b1adc0377535b24cb365987794f44e9, type: 3}
 --- !u!4 &231976354844860833 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1b1adc0377535b24cb365987794f44e9, type: 3}
+  m_PrefabInstance: {fileID: 338504692720731722}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &8098287650902901716 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8417361359673230750, guid: 1b1adc0377535b24cb365987794f44e9, type: 3}
   m_PrefabInstance: {fileID: 338504692720731722}
   m_PrefabAsset: {fileID: 0}

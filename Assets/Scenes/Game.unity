@@ -123,6 +123,86 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &105450176
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 338504691108756497, guid: 1864492b1fea4a648a74feb31147c11c, type: 3}
+      propertyPath: m_Name
+      value: cat
+      objectReference: {fileID: 0}
+    - target: {fileID: 338504691108756503, guid: 1864492b1fea4a648a74feb31147c11c, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 338504691108756503, guid: 1864492b1fea4a648a74feb31147c11c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 338504691108756503, guid: 1864492b1fea4a648a74feb31147c11c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 338504691108756503, guid: 1864492b1fea4a648a74feb31147c11c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 338504691108756503, guid: 1864492b1fea4a648a74feb31147c11c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 338504691108756503, guid: 1864492b1fea4a648a74feb31147c11c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 338504691108756503, guid: 1864492b1fea4a648a74feb31147c11c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 338504691108756503, guid: 1864492b1fea4a648a74feb31147c11c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 338504691108756503, guid: 1864492b1fea4a648a74feb31147c11c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 338504691108756503, guid: 1864492b1fea4a648a74feb31147c11c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 338504691108756503, guid: 1864492b1fea4a648a74feb31147c11c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1864492b1fea4a648a74feb31147c11c, type: 3}
+--- !u!1 &105450177 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 338504691108756497, guid: 1864492b1fea4a648a74feb31147c11c, type: 3}
+  m_PrefabInstance: {fileID: 105450176}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &105450178 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 338504691108756496, guid: 1864492b1fea4a648a74feb31147c11c, type: 3}
+  m_PrefabInstance: {fileID: 105450176}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &105450179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105450177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f801eb1d73aa7d4419b92c31893594fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 105450178}
 --- !u!1 &220661567
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +301,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1519154826 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6140642033360175048, guid: 99eab366e791b974aa7af7e4d4ab1d68, type: 3}
+  m_PrefabInstance: {fileID: 6140642034354597028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1519154831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519154826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e00f4fa8b4544734bbf2eead8a569147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiYPos: 50
+  uiXPos: 50
+  uiSettings: {fileID: 11400000, guid: 6c9ff69342acc504e9af2b41f3b621b9, type: 2}
 --- !u!1001 &1763627969
 PrefabInstance:
   m_ObjectHideFlags: 0
