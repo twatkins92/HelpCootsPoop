@@ -687,6 +687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c89ba063686ad4c9c9b1fb42f03132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poopsCleared_so: {fileID: 11400000, guid: dab1725fcb02d0e49914b3c6b6cb6b67, type: 2}
   minNumberOfPoops: 5
   maxNumberOfPoops: 20
   rotationRange: 180
