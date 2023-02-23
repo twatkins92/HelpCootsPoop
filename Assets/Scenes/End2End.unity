@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6140642033360175050, guid: 99eab366e791b974aa7af7e4d4ab1d68, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6140642033360175050, guid: 99eab366e791b974aa7af7e4d4ab1d68, type: 3}
       propertyPath: m_LocalPosition.x
@@ -188,50 +188,6 @@ PrefabInstance:
       objectReference: {fileID: 2132304066}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99eab366e791b974aa7af7e4d4ab1d68, type: 3}
---- !u!1 &792911732
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 792911734}
-  - component: {fileID: 792911733}
-  m_Layer: 0
-  m_Name: Digger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &792911733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 792911732}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a88383e2a9c4d4c41a443c96a07a2153, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &792911734
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 792911732}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3186994, y: -14.199692, z: 9.7957325}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &808109113
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,7 +430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7647916407949140253, guid: e9974b3ff6edab041bbe07e1ece2464e, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7647916407949140253, guid: e9974b3ff6edab041bbe07e1ece2464e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -824,7 +780,7 @@ PrefabInstance:
       objectReference: {fileID: 1835547188}
     - target: {fileID: 6909348941843476984, guid: 71134c62c4fb1924a9f1658503a13f9c, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6909348941843476984, guid: 71134c62c4fb1924a9f1658503a13f9c, type: 3}
       propertyPath: m_LocalPosition.x
