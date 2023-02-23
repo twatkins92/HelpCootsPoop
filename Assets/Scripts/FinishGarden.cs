@@ -200,7 +200,7 @@ public class FinishGarden : MonoBehaviour
 
     private static readonly List<string> neutralSynonyms = new List<string>
     {
-        "neither here no there",
+        "neither here nor there",
         "contemplating something greater",
         "done with your presence",
         "shy, so turn around"
