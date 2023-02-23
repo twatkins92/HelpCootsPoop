@@ -29,7 +29,7 @@ public class AphorismsUi : MonoBehaviour
     {
         if (currentUI != null) return;
         var ui = uiSettings
-            .MakeUi(AnchorUtil.TopRight(uiXPos, uiYPos))
+            .MakeUi(AnchorUtil.TopLeft(uiXPos, uiYPos))
             .AddChildren(
                     uiSettings.Text(GetAphorism())
             );

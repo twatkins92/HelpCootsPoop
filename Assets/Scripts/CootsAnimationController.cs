@@ -104,7 +104,7 @@ public class CootsAnimationController : MonoBehaviour
         else
         {
             ChangeAnimationState("walk");
-            this.transform.position = Vector3.Lerp(this.transform.position, nextPosition.position, 0.25f * Time.deltaTime);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, nextPosition.position, speed * Time.deltaTime);
         }
     }
 

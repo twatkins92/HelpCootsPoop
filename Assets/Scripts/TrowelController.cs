@@ -55,7 +55,6 @@ public class TrowelController : Digger
                     ) < distacneFromObstacle
                 )
                 {
-                    //Debug.Log("Too close to obstacle");
                     fail = true;
                 }
             }
