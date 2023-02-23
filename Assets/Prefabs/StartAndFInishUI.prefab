@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poopsCleared_so: {fileID: 11400000, guid: dab1725fcb02d0e49914b3c6b6cb6b67, type: 2}
   uiYPos: 50
-  showFinalMenuAfterTime: 2
+  showFinalMenuAfterTime: 5
   uiSettings: {fileID: 11400000, guid: 6b33b69a37d0dcc449c89ee112ba5db6, type: 2}
   successfulScore: 7000
 --- !u!114 &9073210967852608420
