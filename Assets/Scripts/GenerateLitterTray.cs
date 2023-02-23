@@ -15,7 +15,7 @@ public class GenerateLitterTray : MonoBehaviour
     public Vector3 poopScaleRange = Vector3.one;
     public Vector3 rockScaleRange = Vector3.one;
 
-    public float distanceFromOtherObjects = 0.5f; 
+    public float distanceFromOtherObjects = 0.5f;
 
     public float yHeightOfMesh = 0.15f;
 
@@ -43,8 +43,8 @@ public class GenerateLitterTray : MonoBehaviour
 
         // Calculate the random position range from the size of the mesh.
         // Minus the inside edge of the tray
-        float xRange = (bounds.size.x / 2f) -0.15f;
-        float zRange = (bounds.size.z / 2f) -0.15f;
+        float xRange = (bounds.size.x / 2f) - 0.15f;
+        float zRange = (bounds.size.z / 2f) - 0.15f;
 
         int numberOfPoops = Random.Range(minNumberOfPoops, maxNumberOfPoops);
         poopsCleared_so.Value = numberOfPoops;
@@ -58,13 +58,13 @@ public class GenerateLitterTray : MonoBehaviour
             float y = yHeightOfMesh;
 
             Vector3 position = new Vector3(x, y, z);
-            
+
             bool useGestuman = Random.Range(0, 100) > gestumanChance;
             if (useGestuman)
             {
                 Instantiate(gestumanPrefab).transform.position = position;
             }
-            else 
+            else
             {
                 PlacePoop(position, poopPrefab, poopScaleRange);
             }
@@ -84,7 +84,7 @@ public class GenerateLitterTray : MonoBehaviour
     {
         int maxTries = 250;
         Vector3 position = Vector3.zero;
-        
+
         for (int i = 0; i <= maxTries; i++)
         {
             float x = Random.Range(-xRange, xRange) + bounds.center.x;
@@ -93,13 +93,17 @@ public class GenerateLitterTray : MonoBehaviour
 
             position = new Vector3(x, y, z);
 
+            bool tooClose = false;
             foreach (GameObject poop in poops)
             {
-                if (Vector3.Distance(position, poop.transform.position) > distanceFromOtherObjects) 
+                if (Vector3.Distance(position, poop.transform.position) < distanceFromOtherObjects)
                 {
-                    return position;
+                    tooClose = true;
                 }
             }
+
+            if (!tooClose)
+                return position;
         }
         Debug.Log("settling for bad pos");
         return position;
@@ -111,7 +115,14 @@ public class GenerateLitterTray : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(0f, Random.Range(-rotationRange, rotationRange), 0f);
 
         // Generate a random scale for the prefab.
-        Vector3 scale = Vector3.Scale(scaleRange, new Vector3(Random.Range(0.5f, 1.2f), Random.Range(0.5f, 1.2f), Random.Range(0.5f, 1.2f)));
+        Vector3 scale = Vector3.Scale(
+            scaleRange,
+            new Vector3(
+                Random.Range(0.5f, 1.2f),
+                Random.Range(0.5f, 1.2f),
+                Random.Range(0.5f, 1.2f)
+            )
+        );
 
         // Create an instance of the prefab with the random position, rotation, and scale.
         GameObject rockOrPoop = Instantiate(prefab, placedPosition, rotation);
