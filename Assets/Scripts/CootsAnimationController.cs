@@ -68,6 +68,7 @@ public class CootsAnimationController : MonoBehaviour
 
     public void SetCootsMoving(bool moving)
     {
+        ChangeMaterial(CootsMood.NEUTRAL);
         this.moving = moving;
     }
 
@@ -99,6 +100,9 @@ public class CootsAnimationController : MonoBehaviour
             this.transform.LookAt(nextPosition);
             patrolling = false;
             ChangeAnimationState("Idle");
+            int switchVal = Random.Range(0, 10);
+            if (switchVal > 5) ChangeMaterial(CootsMood.NAP);
+            else ChangeMaterial(CootsMood.NEUTRAL);
             this.DoAfter(2.0f, () => patrolling = true);
         }
         else
