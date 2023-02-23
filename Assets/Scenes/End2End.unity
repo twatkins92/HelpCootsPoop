@@ -305,7 +305,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 110, y: -85, z: 0}
 --- !u!1001 &829831438
 PrefabInstance:
@@ -1023,8 +1023,10 @@ MonoBehaviour:
   rockScaleRange: {x: 2, y: 2, z: 2}
   distanceFromOtherObjects: 1.25
   yHeightOfMesh: -0.1
+  gestumanChance: 98
   poopPrefab: {fileID: 776133189407946464, guid: 8f32c4df1d36c18458f2ff3058fa91e6, type: 3}
   rockPrefab: {fileID: 5011515487443108547, guid: 7b833ecab74c357438b62a0869affcf3, type: 3}
+  gestumanPrefab: {fileID: 2510182557431335830, guid: 100c71c569683144a8853f87ba27ecce, type: 3}
 --- !u!4 &1927534538 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1543444761, guid: 95685eaa08255d543b28230698b0c70b, type: 3}
@@ -1220,14 +1222,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 156183659052657602, guid: 71134c62c4fb1924a9f1658503a13f9c, type: 3}
-      propertyPath: BlockCount
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 156183659052657613, guid: 71134c62c4fb1924a9f1658503a13f9c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.8
-      objectReference: {fileID: 0}
     - target: {fileID: 156183659351628738, guid: 71134c62c4fb1924a9f1658503a13f9c, type: 3}
       propertyPath: targetPos
       value: 
@@ -1266,7 +1260,7 @@ PrefabInstance:
       objectReference: {fileID: 1927534538}
     - target: {fileID: 6909348941843476984, guid: 71134c62c4fb1924a9f1658503a13f9c, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6909348941843476984, guid: 71134c62c4fb1924a9f1658503a13f9c, type: 3}
       propertyPath: m_LocalPosition.x

@@ -19,8 +19,11 @@ public class GenerateLitterTray : MonoBehaviour
 
     public float yHeightOfMesh = 0.15f;
 
+    public int gestumanChance = 1;
+
     public GameObject poopPrefab;
     public GameObject rockPrefab;
+    public GameObject gestumanPrefab;
 
     private Mesh meshToPlacePoosOn;
 
@@ -55,8 +58,16 @@ public class GenerateLitterTray : MonoBehaviour
             float y = yHeightOfMesh;
 
             Vector3 position = new Vector3(x, y, z);
-
-            PlacePoop(position, poopPrefab, poopScaleRange);
+            
+            bool useGestuman = Random.Range(0, 100) > gestumanChance;
+            if (useGestuman)
+            {
+                Instantiate(gestumanPrefab).transform.position = position;
+            }
+            else 
+            {
+                PlacePoop(position, poopPrefab, poopScaleRange);
+            }
         }
 
         int numberOfRocks = Random.Range(minNumberOfRocks, maxNumberOfRocks);
