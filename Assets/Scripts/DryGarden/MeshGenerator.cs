@@ -73,7 +73,7 @@ public class MeshGenerator : MonoBehaviour
             }
         }
 
-        Debug.Log(vertices.Length);
+        //Debug.Log(vertices.Length);
 
         // Assign the arrays to the mesh
         mesh.vertices = vertices;

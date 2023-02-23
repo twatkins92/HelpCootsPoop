@@ -126,7 +126,6 @@ public class MeshClicker : Diggable
                 RaiseVertices(brush);
 
                 score += 5;
-                Debug.Log(score);
 
                 //sorry for this jank call in lol
                 if (aphorismsUi != null)
