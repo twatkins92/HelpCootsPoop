@@ -8,6 +8,8 @@ public class PoopController : Diggable
     public IntVariable poopsCleared_so;
     public float clearRange = 0.1f;
 
+    public Animator animator;
+
     private bool cleaned = false;
 
     public void ClearPoop()
@@ -16,6 +18,7 @@ public class PoopController : Diggable
         cleaned = true;
         poopsCleared_so.Value += 1;
         SoundManager.PlaySound("PoopJingle");
+        animator.Play("PoopCleared");
         //trigger poop cleared animation
         this.DoAfter(2, () => Destroy(this.gameObject));
     }
