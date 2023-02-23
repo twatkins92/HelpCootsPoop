@@ -22,7 +22,7 @@ MonoBehaviour:
     aliases:
     - PoopJingle
     customFalloff: {fileID: 0}
-    audioMixerGroup: {fileID: 0}
+    audioMixerGroup: {fileID: 24300002, guid: 4c2c547074bc79746948afdf48850b8d, type: 2}
     maxSimultaneousPlaying: 0
   - audioClip: {fileID: 8300000, guid: 2971e05cf60e8ed4d889716c48c6088d, type: 3}
     volume: 1
@@ -32,7 +32,7 @@ MonoBehaviour:
     aliases:
     - PoopJingle
     customFalloff: {fileID: 0}
-    audioMixerGroup: {fileID: 0}
+    audioMixerGroup: {fileID: 24300002, guid: 4c2c547074bc79746948afdf48850b8d, type: 2}
     maxSimultaneousPlaying: 0
   - audioClip: {fileID: 8300000, guid: d8354ffab2d16b74e9a25d5e39be7f21, type: 3}
     volume: 1
@@ -42,7 +42,7 @@ MonoBehaviour:
     aliases:
     - PoopJingle
     customFalloff: {fileID: 0}
-    audioMixerGroup: {fileID: 0}
+    audioMixerGroup: {fileID: 24300002, guid: 4c2c547074bc79746948afdf48850b8d, type: 2}
     maxSimultaneousPlaying: 0
   - audioClip: {fileID: 8300000, guid: 948adbc1c0631ef4db01f81a6b49c7ff, type: 3}
     volume: 1
@@ -52,7 +52,7 @@ MonoBehaviour:
     aliases:
     - PoopJingle
     customFalloff: {fileID: 0}
-    audioMixerGroup: {fileID: 0}
+    audioMixerGroup: {fileID: 24300002, guid: 4c2c547074bc79746948afdf48850b8d, type: 2}
     maxSimultaneousPlaying: 0
   - audioClip: {fileID: 8300000, guid: df32786c59bbb3e409ac0c7e45b68f6e, type: 3}
     volume: 1
@@ -62,7 +62,7 @@ MonoBehaviour:
     aliases:
     - PoopJingle
     customFalloff: {fileID: 0}
-    audioMixerGroup: {fileID: 0}
+    audioMixerGroup: {fileID: 24300002, guid: 4c2c547074bc79746948afdf48850b8d, type: 2}
     maxSimultaneousPlaying: 0
   - audioClip: {fileID: 8300000, guid: 260af12037336ca4cb28f3ab2ce2870b, type: 3}
     volume: 1
@@ -72,7 +72,16 @@ MonoBehaviour:
     aliases:
     - PoopJingle
     customFalloff: {fileID: 0}
-    audioMixerGroup: {fileID: 0}
+    audioMixerGroup: {fileID: 24300002, guid: 4c2c547074bc79746948afdf48850b8d, type: 2}
+    maxSimultaneousPlaying: 0
+  - audioClip: {fileID: 8300000, guid: 7599da622627ade4eab7120be9227202, type: 3}
+    volume: 1
+    spatialBlend: 0
+    pitchVariation: 0
+    looping: 1
+    aliases: []
+    customFalloff: {fileID: 0}
+    audioMixerGroup: {fileID: 24300002, guid: 4c2c547074bc79746948afdf48850b8d, type: 2}
     maxSimultaneousPlaying: 0
   - audioClip: {fileID: 0}
     volume: 1

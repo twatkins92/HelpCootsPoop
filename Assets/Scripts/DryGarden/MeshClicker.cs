@@ -66,6 +66,14 @@ public class MeshClicker : Diggable
 
     public float score = 0;
 
+    public float sandIdleTime = 0.5f;
+    public float sandTransitionSpeed = 2f;
+    public float sandAudioVolume = 1f;
+    public AudioClip sandClip;
+    private AudioSource sandSource;
+    private float currSandIdleTime = float.MaxValue;
+    private bool audioIn = false;
+
     void Start()
     {
         mesh = GetComponent<MeshFilter>().mesh;
@@ -73,6 +81,8 @@ public class MeshClicker : Diggable
         meshCollider.sharedMesh = mesh;
         kdTree = GetComponent<KDT>();
         aphorismsUi = FindObjectOfType<AphorismsUi>();
+        sandSource = SoundManager.PlaySound(sandClip);
+        sandSource.volume = 0;
     }
 
     public override void TryDig(Vector3 vector)
@@ -86,6 +96,13 @@ public class MeshClicker : Diggable
 
         if (drawnPoints.Count > 0 && Vector3.Distance(zeroedIntersectPoint, drawnPoints[^1]) < 0.1f)
             return;
+
+        currSandIdleTime = 0;
+        if (!audioIn)
+        {
+            audioIn = true;
+            SoundManager.FadeTo(sandSource, sandAudioVolume, sandTransitionSpeed);
+        }
 
         if (drawnPoints.Count == 0)
         {
@@ -139,6 +156,13 @@ public class MeshClicker : Diggable
         if (Input.GetMouseButtonUp(0))
         {
             drawnPoints.Clear();
+        }
+
+        currSandIdleTime += Time.deltaTime;
+        if (currSandIdleTime > sandIdleTime && audioIn)
+        {
+            audioIn = false;
+            SoundManager.FadeTo(sandSource, 0, sandTransitionSpeed);
         }
     }
 
