@@ -24,6 +24,8 @@ public class Pause : MonoBehaviour
 
     public void BeginPause()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         paused = true;
         Time.timeScale = 0;
         menus.PauseMenu(this);

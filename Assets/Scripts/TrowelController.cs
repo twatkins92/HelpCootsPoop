@@ -30,7 +30,7 @@ public class TrowelController : Digger
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Time.timeScale == 0)
+        if (Time.timeScale != 0)
         {
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = false;
