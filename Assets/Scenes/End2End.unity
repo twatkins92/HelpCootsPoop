@@ -654,6 +654,10 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   score: 0
+  sandIdleTime: 0.2
+  sandTransitionSpeed: 0.2
+  sandAudioVolume: 0.08
+  sandClip: {fileID: 8300000, guid: 7599da622627ade4eab7120be9227202, type: 3}
 --- !u!64 &1835547193
 MeshCollider:
   m_ObjectHideFlags: 0
