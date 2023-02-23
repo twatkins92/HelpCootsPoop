@@ -12,14 +12,22 @@ public class StartUi : MonoBehaviour
 
     private AphorismsUi aphorismsUi;
 
+    private TrowelController trowel;
+
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
+        trowel = FindObjectOfType<TrowelController>();
+        trowel.enabled = false;
+        
         ShowStartUI();       
         aphorismsUi = FindObjectOfType<AphorismsUi>();
+
+        SoundManager.PlayMusic("CootsBackgroundMusic", 1f);
         //block inputs
     }
 
@@ -50,5 +58,6 @@ public class StartUi : MonoBehaviour
         Cursor.visible = false;
         currentUI = null;
         aphorismsUi.EnableCamera(true);
+        trowel.enabled = true;
     }
 }
