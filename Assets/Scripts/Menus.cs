@@ -48,17 +48,17 @@ public class Menus : MonoBehaviour
             .AddChildren(
                 uiSettings.Title("Cat Litter Dry Garden"),
                 uiSettings.Button("Play", () => Transitions.Start("SimpleFade", "Game")),
-                uiSettings.Button(
+                /*uiSettings.Button(
                     "Options",
                     () => 
                     {
                         ClearMenus();
                         OptionsMenu(() => MainMenu());
                     }
-                ),
+                ),*/
                 uiSettings.Button(
                     "Credits",
-                    () => 
+                    () =>
                     {
                         ClearMenus();
                         Credits();
@@ -89,7 +89,7 @@ public class Menus : MonoBehaviour
                     }
                 )
             );
-        
+
         currentUis.Add(ui);
     }
 

@@ -23,27 +23,30 @@ public class StartUi : MonoBehaviour
 
         trowel = FindObjectOfType<TrowelController>();
         trowel.enabled = false;
-        
-        ShowStartUI();       
+
+        ShowStartUI();
         aphorismsUi = FindObjectOfType<AphorismsUi>();
 
         SoundManager.PlayMusic("CootsBackgroundMusic", 1f);
     }
-
 
     public void ShowStartUI()
     {
         var ui = uiSettings
             .MakeUi(AnchorUtil.Centre(uiXPos, uiYPos))
             .AddChildren(
-                    uiSettings.Text(cootsMoodObjectives[Random.Range(0, cootsMoodObjectives.Count*10)/10]),
-                    uiSettings.Text("With your help clean"),
-                    uiSettings.Text("and"),
-                    uiSettings.Text("create a zen litter garden"),
-                    uiSettings.Text("To find the perfect mood for him to Poop"),
-                    uiSettings.Text("Click to drag"),
-                    uiSettings.Text("Press [Enter] when satisfied with your creation"),
-                    uiSettings.Button("Start to Scoop!", () => ClearStartUI())
+                uiSettings.Title(
+                    cootsMoodObjectives[Random.Range(0, cootsMoodObjectives.Count * 10) / 10]
+                ),
+                uiSettings.Text(
+                    "Create a zen litter garden to put Coots in the perfect mood to poop."
+                ),
+                uiSettings.Text(""),
+                uiSettings.Text("[M1]: Part the Litter"),
+                uiSettings.Text("[Enter]: Finish your Creation"),
+                uiSettings.Text(""),
+                uiSettings.Text(""),
+                uiSettings.Button("Scoop!", () => ClearStartUI())
             );
 
         currentUI = ui;
@@ -60,6 +63,12 @@ public class StartUi : MonoBehaviour
         trowel.enabled = true;
     }
 
-
-    private static readonly List<string> cootsMoodObjectives = new List<string> { "Coots is currently spaced out", "Coots' nerves are getting the better of him", "Coots is afraid to step foot into the tray", "Coots requires soothing", "Coots is lacking excitement" };
+    private static readonly List<string> cootsMoodObjectives = new List<string>
+    {
+        "Coots is currently spaced out",
+        "Coots' nerves are getting the better of him",
+        "Coots is afraid to step foot into the tray",
+        "Coots requires soothing",
+        "Coots is lacking excitement"
+    };
 }
