@@ -54,7 +54,11 @@ public class FinishGarden : MonoBehaviour
 
             TrowelController trowel = FindObjectOfType<TrowelController>();
             if (trowel != null)
+            {
+                GameObject trowelModel = trowel.trowel;
                 Destroy(trowel);
+                Destroy(trowelModel);
+            }
         }
 
         if (finishing && !finished)
