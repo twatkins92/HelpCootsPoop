@@ -69,6 +69,7 @@ public class CootsAnimationController : MonoBehaviour
     public void SetCootsMoving(bool moving)
     {
         ChangeMaterial(CootsMood.NEUTRAL);
+        StopAllCoroutines();
         this.moving = moving;
     }
 
