@@ -49,6 +49,7 @@ MonoBehaviour:
   uiYPos: 50
   showFinalMenuAfterTime: 2
   uiSettings: {fileID: 11400000, guid: 6c9ff69342acc504e9af2b41f3b621b9, type: 2}
+  successfulScore: 7000
 --- !u!114 &9073210967852608420
 MonoBehaviour:
   m_ObjectHideFlags: 0

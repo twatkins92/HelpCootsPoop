@@ -18,6 +18,7 @@ public class CootsAnimationController : MonoBehaviour
     private Dictionary<int, string> currentState = new Dictionary<int, string>();
 
     public bool moving = false;
+    public bool idling = true;
 
     void Start()
     {
@@ -30,7 +31,7 @@ public class CootsAnimationController : MonoBehaviour
     {
         if (!moving)
         {
-            IdleAnim();
+            if (idling) IdleAnim();
             return;
         }
         else MoveCoots();
