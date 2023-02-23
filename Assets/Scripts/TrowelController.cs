@@ -7,8 +7,7 @@ public class TrowelController : Digger
     public GameObject trowel;
 
     public bool useLerpForTrowelMovement = true;
-    public float trowelMoveSpeedNormal = 4.0f;
-    public float trowelMoveSpeedAiming = 2.0f;
+    public float trowlLerpStepRatio = 0.1f;
 
     public float trowelDistanceFromCamera = 2.0f;
     public float trowelDrawPathDistanceFromCamera = 20f;
@@ -27,7 +26,7 @@ public class TrowelController : Digger
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Time.timeScale == 0)
         {
@@ -63,12 +62,11 @@ public class TrowelController : Digger
             positionTarget = newTrowelPosition;
         }
 
-        float speed = aiming ? trowelMoveSpeedAiming : trowelMoveSpeedNormal;
         if (useLerpForTrowelMovement)
             trowel.transform.position = Vector3.Lerp(
                 trowel.transform.position,
                 newTrowelPosition,
-                speed * Time.deltaTime
+                trowlLerpStepRatio
             );
         else
             trowel.transform.position = newTrowelPosition;
