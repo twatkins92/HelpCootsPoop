@@ -141,7 +141,7 @@ MonoBehaviour:
   uiXPos: 50
   fadeAphorismAfterTime: 2
   uiSettings: {fileID: 11400000, guid: 6c9ff69342acc504e9af2b41f3b621b9, type: 2}
-  catCamera: {fileID: 0}
+  catCamera: {fileID: 156183659052657603}
 --- !u!1001 &156183659246178561
 PrefabInstance:
   m_ObjectHideFlags: 0
