@@ -110,7 +110,6 @@ public class CootsAnimationController : MonoBehaviour
 
     private void IdleAnim()
     {
-        Debug.Log("Idle anim should play");
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
             ChangeAnimationState(idleAnimationStates[Random.Range(0, idleAnimationStates.Count*10)/10]);
