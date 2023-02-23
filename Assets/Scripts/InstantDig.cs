@@ -13,4 +13,19 @@ public class InstantDig : Digger
             Dig();
         }
     }
+
+    public override void Dig()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        float intersectDistance = default;
+        new Plane(Vector3.up, Vector3.zero).Raycast(ray, out intersectDistance);
+        Vector3 zeroedIntersectPoint = ray.origin + ray.direction * intersectDistance;
+
+        foreach (Diggable diggable in diggables)
+        {
+            if (diggable != null)
+                diggable.TryDig(zeroedIntersectPoint);
+        }
+    }
 }

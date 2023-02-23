@@ -18,20 +18,35 @@ public class TrowelController : Digger
     private Vector3 positionTarget;
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
         base.Start();
         //might not need to be confined
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = false;
+
         positionTarget = this.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = false;
+        }
+
         HandleTrowelMovement();
-        if (Input.GetMouseButton(0)) Dig();
+        if (Input.GetMouseButton(0))
+            Dig();
+    }
+
+    public override void Dig()
+    {
+        foreach (Diggable diggable in diggables)
+        {
+            if (diggable != null)
+                diggable.TryDig(trowel.transform.position.Horizontal());
+        }
     }
 
     void HandleTrowelMovement()
@@ -40,7 +55,7 @@ public class TrowelController : Digger
 
         if (Input.GetAxis("Mouse Y") == 0 && Input.GetAxis("Mouse X") == 0)
         {
-            newTrowelPosition = positionTarget;    
+            newTrowelPosition = positionTarget;
         }
         else
         {
@@ -50,7 +65,11 @@ public class TrowelController : Digger
 
         float speed = aiming ? trowelMoveSpeedAiming : trowelMoveSpeedNormal;
         if (useLerpForTrowelMovement)
-            trowel.transform.position = Vector3.Lerp(trowel.transform.position, newTrowelPosition, speed * Time.deltaTime);
+            trowel.transform.position = Vector3.Lerp(
+                trowel.transform.position,
+                newTrowelPosition,
+                speed * Time.deltaTime
+            );
         else
             trowel.transform.position = newTrowelPosition;
     }
@@ -71,12 +90,21 @@ public class TrowelController : Digger
 
     private Vector3 WorldPosWithRange()
     {
-        Vector3 worldPos;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        float intersectDistance = default;
+        new Plane(Vector3.up, Vector3.zero).Raycast(ray, out intersectDistance);
+        Vector3 zeroedIntersectPoint = ray.origin + ray.direction * intersectDistance;
+
+        return zeroedIntersectPoint + Vector3.up * 0.5f;
+        /*Vector3 worldPos;
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        float distance = Input.GetKey(KeyCode.Mouse0) ? trowelDrawPathDistanceFromCamera : trowelDistanceFromCamera;
+        float distance = Input.GetKey(KeyCode.Mouse0)
+            ? trowelDrawPathDistanceFromCamera
+            : trowelDistanceFromCamera;
 
         if (Physics.Raycast(ray.origin, ray.direction, out hit, distance))
         {
@@ -85,10 +113,11 @@ public class TrowelController : Digger
         else
         {
             Vector3 mousePos = Input.mousePosition;
-            worldPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, trowelDistanceFromCamera));
+            worldPos = Camera.main.ScreenToWorldPoint(
+                new Vector3(mousePos.x, mousePos.y, trowelDistanceFromCamera)
+            );
         }
 
-        return worldPos;
+        return worldPos;*/
     }
-
 }

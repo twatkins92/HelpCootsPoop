@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trowel: {fileID: 5038958881265332511}
   useLerpForTrowelMovement: 1
-  trowelMoveSpeedNormal: 2
+  trowelMoveSpeedNormal: 4
   trowelMoveSpeedAiming: 1
   trowelDistanceFromCamera: 0.5
   trowelDrawPathDistanceFromCamera: 20
@@ -405,15 +405,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6067255382269268406, guid: e18f6502a78110445891a145cc6d5911, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 6067255382269268406, guid: e18f6502a78110445891a145cc6d5911, type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 6067255382269268406, guid: e18f6502a78110445891a145cc6d5911, type: 3}
       propertyPath: m_LocalScale.z
-      value: 10
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 6067255382269268406, guid: e18f6502a78110445891a145cc6d5911, type: 3}
       propertyPath: m_LocalPosition.x
