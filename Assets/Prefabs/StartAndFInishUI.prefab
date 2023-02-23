@@ -48,7 +48,7 @@ MonoBehaviour:
   poopsCleared_so: {fileID: 11400000, guid: dab1725fcb02d0e49914b3c6b6cb6b67, type: 2}
   uiYPos: 50
   showFinalMenuAfterTime: 2
-  uiSettings: {fileID: 11400000, guid: 6c9ff69342acc504e9af2b41f3b621b9, type: 2}
+  uiSettings: {fileID: 11400000, guid: 6b33b69a37d0dcc449c89ee112ba5db6, type: 2}
   successfulScore: 7000
 --- !u!114 &9073210967852608420
 MonoBehaviour:
@@ -62,6 +62,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e00f4fa8b4544734bbf2eead8a569147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiYPos: 50
-  uiXPos: 50
-  uiSettings: {fileID: 11400000, guid: 6c9ff69342acc504e9af2b41f3b621b9, type: 2}
+  uiYPos: 0
+  uiXPos: 0
+  uiSettings: {fileID: 11400000, guid: 6b33b69a37d0dcc449c89ee112ba5db6, type: 2}

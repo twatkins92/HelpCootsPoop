@@ -424,10 +424,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3663965913678298944, guid: e9974b3ff6edab041bbe07e1ece2464e, type: 3}
-      propertyPath: uiSettings
-      value: 
-      objectReference: {fileID: 11400000, guid: 6b33b69a37d0dcc449c89ee112ba5db6, type: 2}
     - target: {fileID: 4132769294206142756, guid: e9974b3ff6edab041bbe07e1ece2464e, type: 3}
       propertyPath: m_Name
       value: StartAndFInishUI
@@ -476,18 +472,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9073210967852608420, guid: e9974b3ff6edab041bbe07e1ece2464e, type: 3}
-      propertyPath: uiXPos
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073210967852608420, guid: e9974b3ff6edab041bbe07e1ece2464e, type: 3}
-      propertyPath: uiYPos
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073210967852608420, guid: e9974b3ff6edab041bbe07e1ece2464e, type: 3}
-      propertyPath: uiSettings
-      value: 
-      objectReference: {fileID: 11400000, guid: 6b33b69a37d0dcc449c89ee112ba5db6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9974b3ff6edab041bbe07e1ece2464e, type: 3}
 --- !u!1 &1835547185
@@ -732,22 +716,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 156183658152294209, guid: 71134c62c4fb1924a9f1658503a13f9c, type: 3}
-      propertyPath: uiSettings
-      value: 
-      objectReference: {fileID: 11400000, guid: 6b33b69a37d0dcc449c89ee112ba5db6, type: 2}
-    - target: {fileID: 156183659052657603, guid: 71134c62c4fb1924a9f1658503a13f9c, type: 3}
-      propertyPath: m_ClearFlags
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 156183659052657603, guid: 71134c62c4fb1924a9f1658503a13f9c, type: 3}
-      propertyPath: orthographic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 156183659052657603, guid: 71134c62c4fb1924a9f1658503a13f9c, type: 3}
-      propertyPath: field of view
-      value: 60
-      objectReference: {fileID: 0}
     - target: {fileID: 156183659351628738, guid: 71134c62c4fb1924a9f1658503a13f9c, type: 3}
       propertyPath: targetPos
       value: 

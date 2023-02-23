@@ -16,8 +16,8 @@ MonoBehaviour:
   titleFont: {fileID: 11400000, guid: b5cae927211646c4d9f63dc51c4b768b, type: 2}
   titleForeground: {r: 0.19215688, g: 0.1254902, b: 0.09411766, a: 1}
   titleSize: 80
-  titleTopmargin: 8
-  titleBottomMargin: 56
+  titleTopmargin: 16
+  titleBottomMargin: 46
   textAligntment: 4097
   textFont: {fileID: 11400000, guid: 5e98a80d01bc4784382853ced32ac5ee, type: 2}
   textForeground: {r: 0.19215687, g: 0.1254902, b: 0.09411765, a: 1}
