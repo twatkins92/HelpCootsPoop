@@ -73,13 +73,21 @@ public class Menus : MonoBehaviour
     public void Credits()
     {
         var ui = uiSettings
-            .MakeUi(AnchorUtil.Centre(0, 0))
+            .MakeUi(AnchorUtil.BottomCentre(40))
             .AddChildren(
                 uiSettings.Text("A Game By"),
-                uiSettings.Text("Alex Hetherington"),
-                uiSettings.Text("Thomas Watkins"),
+                uiSettings.Text("   Alex Hetherington"),
+                uiSettings.Text("   Thomas Watkins"),
+                uiSettings.Text(""),
                 uiSettings.Text("With additonal work by"),
-                uiSettings.Text("Paul Daulby"),
+                uiSettings.Text("   Paul Daulby"),
+                uiSettings.Text(""),
+                uiSettings.Text("Assets"),
+                uiSettings.Text("   Font: Dogica"),
+                uiSettings.Text("   Font: Alagard"),
+                uiSettings.Text("   Panel: Fantasy Dreamland Free"),
+                uiSettings.Text("   Sand Sound: cloe.king"),
+                uiSettings.Text("   Trowel: vikramgd"),
                 uiSettings.Button(
                     "Back",
                     () =>
