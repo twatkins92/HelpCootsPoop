@@ -10,12 +10,19 @@ public class AphorismsUi : MonoBehaviour
 
     public UISettings uiSettings;
 
+    public Camera catCamera;
+
     private RectTransform currentUI;
 
     // Start is called before the first frame update
     void Start()
     {
+        EnableCamera(false);
+    }
 
+    public void EnableCamera(bool enable)
+    {
+        catCamera.gameObject.SetActive(enable);
     }
 
     public void ShowAphorism()

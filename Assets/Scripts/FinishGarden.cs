@@ -14,6 +14,7 @@ public class FinishGarden : MonoBehaviour
     private CootsAnimationController.CootsMood cootsMood;
 
     private CootsAnimationController cootsAnimationController;
+    private AphorismsUi aphorismsUi;
 
     private bool finished = false;
     private bool finishing = false;
@@ -23,6 +24,7 @@ public class FinishGarden : MonoBehaviour
     void Start()
     {
         cootsAnimationController = FindObjectOfType<CootsAnimationController>();
+        aphorismsUi = FindObjectOfType<AphorismsUi>();
 
         cootsMoodToStringList.Add(CootsAnimationController.CootsMood.NEUTRAL, neutralSynonyms);
         cootsMoodToStringList.Add(CootsAnimationController.CootsMood.NAP, napSynonyms);
@@ -38,6 +40,7 @@ public class FinishGarden : MonoBehaviour
             Debug.Log("score is : " + poopsCleared_so.Value);
             cootsMood = CootsAnimationController.CootsMood.NEUTRAL;
             //then ruin next animation based on happiness
+            aphorismsUi.EnableCamera(false);
             CameraController.Instance.AimCamera();
             cootsAnimationController.SetCootsMoving(true);
             finishing = true;

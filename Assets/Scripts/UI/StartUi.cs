@@ -10,6 +10,8 @@ public class StartUi : MonoBehaviour
 
     private RectTransform currentUI;
 
+    private AphorismsUi aphorismsUi;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,7 @@ public class StartUi : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         ShowStartUI();       
+        aphorismsUi = FindObjectOfType<AphorismsUi>();
         //block inputs
     }
 
@@ -46,5 +49,6 @@ public class StartUi : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
         currentUI = null;
+        aphorismsUi.EnableCamera(true);
     }
 }
