@@ -18,6 +18,7 @@ public class FinishGarden : MonoBehaviour
 
     private bool finished = false;
     private bool finishing = false;
+    private bool poopsCleared = false;
 
     private Dictionary<CootsAnimationController.CootsMood, List<string>> cootsMoodToStringList = new Dictionary<CootsAnimationController.CootsMood, List<string>>();
 
@@ -52,6 +53,7 @@ public class FinishGarden : MonoBehaviour
 
         if (finishing && !finished) FinishGame();
         if (finished && Input.anyKey) PlayAnimationBasedOnScoreAndMood();
+        if (!poopsCleared && poopsCleared_so.Value == 0) ShowPoopsClearedUI();
     }
 
     public void FinishGame()
@@ -91,6 +93,24 @@ public class FinishGarden : MonoBehaviour
         currentUI = ui;
     }
 
+    public void ShowPoopsClearedUI()
+    {
+        poopsCleared = true;
+        ClearFinishUI();
+
+        var ui = uiSettings
+            .MakeUi(AnchorUtil.BottomCentre(uiYPos))
+            .AddChildren(
+                uiSettings.Text("The poops are cleared"),
+                uiSettings.Text("feel free to keep brushing"),
+                uiSettings.Text("or hit [Enter] to finish up here")
+            );
+        
+        currentUI = ui;
+
+        this.DoAfter(5f, () => ClearFinishUI());
+    }
+
     public void ShowFinishUI()
     {
         ClearFinishUI();
@@ -98,7 +118,7 @@ public class FinishGarden : MonoBehaviour
         var ui = uiSettings
             .MakeUi(AnchorUtil.BottomCentre(uiYPos))
             .AddChildren(
-                uiSettings.Button("Play Again", () => Transitions.Start("SimpleFade", "End2End")),
+                uiSettings.Button("Clean Another?", () => Transitions.Start("SimpleFade", "End2End")),
                 uiSettings.Button("Quit", () => Application.Quit())
             );
 

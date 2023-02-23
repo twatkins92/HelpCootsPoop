@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GenerateLitterTray : MonoBehaviour
 {
+    public IntVariable poopsCleared_so;
+
     public int minNumberOfPoops = 5;
     public int maxNumberOfPoops = 20;
     public float rotationRange = 180f;
@@ -33,7 +35,10 @@ public class GenerateLitterTray : MonoBehaviour
         float xRange = (bounds.size.x / 2f) -0.15f;
         float zRange = (bounds.size.z / 2f) -0.15f;
 
-        for (int i = 0; i < Random.Range(minNumberOfPoops, maxNumberOfPoops); i++)
+        int numberOfPoops = Random.Range(minNumberOfPoops, maxNumberOfPoops);
+        poopsCleared_so.Value = numberOfPoops;
+
+        for (int i = 0; i < numberOfPoops; i++)
         {
             // Generate a random position on the mesh within the calculated range.
             float x = Random.Range(-xRange, xRange) + bounds.center.x;
