@@ -78,6 +78,7 @@ public class FinishGarden : MonoBehaviour
 
     public void FinishGame()
     {
+        StopAllCoroutines();
         ClearFinishUI();
         bool cootsMoving = cootsAnimationController.GetCootsMoving();
 
@@ -154,8 +155,8 @@ public class FinishGarden : MonoBehaviour
                 uiSettings.Button(
                     "Clean Another?",
                     () => Transitions.Start("SimpleFade", "End2End")
-                ),
-                uiSettings.Button("View your creation", () => CameraController.Instance.DefaultCamera())
+                )
+            //uiSettings.Button("Quit", () => Application.Quit())
             );
 
         Cursor.lockState = CursorLockMode.None;
