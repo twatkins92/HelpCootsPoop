@@ -28,7 +28,11 @@ public class CootsAnimationController : MonoBehaviour
 
     void Update()
     {
-        if (!moving) return;
+        if (!moving)
+        {
+            IdleAnim();
+            return;
+        }
         else MoveCoots();
     }
 
@@ -69,10 +73,21 @@ public class CootsAnimationController : MonoBehaviour
         }
     }
 
+    private void IdleAnim()
+    {
+       if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+       {
+           ChangeAnimationState(idleAnimationStates[Random.Range(0, idleAnimationStates.Count*10)/10]);
+       }
+    }
+
     public enum CootsMood
     {
         NEUTRAL,
         SCREAM,
         NAP
     }
+
+
+    private static readonly List<string> idleAnimationStates = new List<string> { "squat", "spin", "lookup", "wriggle", "hop" };
 }
