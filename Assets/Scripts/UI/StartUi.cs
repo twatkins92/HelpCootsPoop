@@ -28,7 +28,6 @@ public class StartUi : MonoBehaviour
         aphorismsUi = FindObjectOfType<AphorismsUi>();
 
         SoundManager.PlayMusic("CootsBackgroundMusic", 1f);
-        //block inputs
     }
 
 
@@ -37,7 +36,7 @@ public class StartUi : MonoBehaviour
         var ui = uiSettings
             .MakeUi(AnchorUtil.Centre(uiXPos, uiYPos))
             .AddChildren(
-                    uiSettings.Text("Coots is currently feeling Spaced Out"),
+                    uiSettings.Text(cootsMoodObjectives[Random.Range(0, cootsMoodObjectives.Count*10)/10]),
                     uiSettings.Text("With your help clean"),
                     uiSettings.Text("and"),
                     uiSettings.Text("create a zen litter garden"),
@@ -60,4 +59,7 @@ public class StartUi : MonoBehaviour
         aphorismsUi.EnableCamera(true);
         trowel.enabled = true;
     }
+
+
+    private static readonly List<string> cootsMoodObjectives = new List<string> { "Coots is currently spaced out", "Coots' nerves are getting the better of him", "Coots is afraid to step foot into the tray", "Coots requires soothing", "Coots is lacking excitement" };
 }
