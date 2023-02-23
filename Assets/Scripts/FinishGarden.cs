@@ -42,6 +42,7 @@ public class FinishGarden : MonoBehaviour
             //then ruin next animation based on happiness
             aphorismsUi.EnableCamera(false);
             CameraController.Instance.AimCamera();
+            cootsAnimationController.ChangeAnimationState("Run");
             cootsAnimationController.SetCootsMoving(true);
             finishing = true;
 

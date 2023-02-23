@@ -60,7 +60,6 @@ public class CootsAnimationController : MonoBehaviour
     {
         if (Vector3.Distance(this.transform.position, targetPos.position) < 0.5f)
         {
-            Debug.Log("At pos");
             this.moving = false;
         }
         else
