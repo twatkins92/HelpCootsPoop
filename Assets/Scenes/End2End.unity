@@ -1021,7 +1021,7 @@ MonoBehaviour:
   rotationRange: 180
   poopScaleRange: {x: 4, y: 4, z: 4}
   rockScaleRange: {x: 2, y: 2, z: 2}
-  distanceFromOtherObjects: 2.5
+  distanceFromOtherObjects: 1
   yHeightOfMesh: -0.1
   gestumanChance: 98
   poopPrefab: {fileID: 776133189407946464, guid: 8f32c4df1d36c18458f2ff3058fa91e6, type: 3}
