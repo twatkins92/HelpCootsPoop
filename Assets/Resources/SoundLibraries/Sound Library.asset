@@ -12,12 +12,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f28c487d6595c24684dd831a9206cb1, type: 3}
   m_Name: Sound Library
   m_EditorClassIdentifier: 
-  audioMixerGroup: {fileID: 0}
+  audioMixerGroup: {fileID: 24300002, guid: 4c2c547074bc79746948afdf48850b8d, type: 2}
   soundEntries:
+  - audioClip: {fileID: 8300000, guid: dd22a8e9ef46d8048aea5283f0c4b72c, type: 3}
+    volume: 1
+    spatialBlend: 0
+    pitchVariation: 0
+    looping: 0
+    aliases:
+    - PoopJingle
+    customFalloff: {fileID: 0}
+    audioMixerGroup: {fileID: 0}
+    maxSimultaneousPlaying: 0
+  - audioClip: {fileID: 8300000, guid: 2971e05cf60e8ed4d889716c48c6088d, type: 3}
+    volume: 1
+    spatialBlend: 0
+    pitchVariation: 0
+    looping: 0
+    aliases:
+    - PoopJingle
+    customFalloff: {fileID: 0}
+    audioMixerGroup: {fileID: 0}
+    maxSimultaneousPlaying: 0
+  - audioClip: {fileID: 8300000, guid: d8354ffab2d16b74e9a25d5e39be7f21, type: 3}
+    volume: 1
+    spatialBlend: 0
+    pitchVariation: 0
+    looping: 0
+    aliases:
+    - PoopJingle
+    customFalloff: {fileID: 0}
+    audioMixerGroup: {fileID: 0}
+    maxSimultaneousPlaying: 0
+  - audioClip: {fileID: 8300000, guid: 948adbc1c0631ef4db01f81a6b49c7ff, type: 3}
+    volume: 1
+    spatialBlend: 0
+    pitchVariation: 0
+    looping: 0
+    aliases:
+    - PoopJingle
+    customFalloff: {fileID: 0}
+    audioMixerGroup: {fileID: 0}
+    maxSimultaneousPlaying: 0
+  - audioClip: {fileID: 8300000, guid: df32786c59bbb3e409ac0c7e45b68f6e, type: 3}
+    volume: 1
+    spatialBlend: 0
+    pitchVariation: 0
+    looping: 0
+    aliases:
+    - PoopJingle
+    customFalloff: {fileID: 0}
+    audioMixerGroup: {fileID: 0}
+    maxSimultaneousPlaying: 0
+  - audioClip: {fileID: 8300000, guid: 260af12037336ca4cb28f3ab2ce2870b, type: 3}
+    volume: 1
+    spatialBlend: 0
+    pitchVariation: 0
+    looping: 0
+    aliases:
+    - PoopJingle
+    customFalloff: {fileID: 0}
+    audioMixerGroup: {fileID: 0}
+    maxSimultaneousPlaying: 0
   - audioClip: {fileID: 0}
-    volume: 0
+    volume: 1
     spatialBlend: 0
     pitchVariation: 0
     looping: 0
     aliases: []
+    customFalloff: {fileID: 0}
     audioMixerGroup: {fileID: 0}
+    maxSimultaneousPlaying: 0

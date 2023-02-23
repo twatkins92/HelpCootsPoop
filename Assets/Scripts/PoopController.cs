@@ -15,6 +15,7 @@ public class PoopController : Diggable
         if (cleaned) return;
         cleaned = true;
         poopsCleared_so.Value += 1;
+        SoundManager.PlaySound("PoopJingle");
         //trigger poop cleared animation
         this.DoAfter(2, () => Destroy(this.gameObject));
     }

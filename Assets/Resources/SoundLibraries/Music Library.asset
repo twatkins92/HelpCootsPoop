@@ -12,10 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f28c487d6595c24684dd831a9206cb1, type: 3}
   m_Name: Music Library
   m_EditorClassIdentifier: 
-  audioMixerGroup: {fileID: 0}
+  audioMixerGroup: {fileID: 24300002, guid: d42d65a35fb86db47be894f802673369, type: 2}
   soundEntries:
+  - audioClip: {fileID: 8300000, guid: 300321e2d08319846830b9be06a3846d, type: 3}
+    volume: 1
+    spatialBlend: 0
+    pitchVariation: 0
+    looping: 0
+    aliases: []
+    customFalloff: {fileID: 0}
+    audioMixerGroup: {fileID: 24300002, guid: d42d65a35fb86db47be894f802673369, type: 2}
+    maxSimultaneousPlaying: 0
   - audioClip: {fileID: 0}
-    volume: 0
+    volume: 1
     spatialBlend: 0
     pitchVariation: 0
     looping: 0
