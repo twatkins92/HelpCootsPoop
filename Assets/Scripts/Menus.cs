@@ -63,8 +63,8 @@ public class Menus : MonoBehaviour
                         ClearMenus();
                         Credits();
                     }
-                ),
-                uiSettings.Button("Quit", () => Application.Quit())
+                )
+            //uiSettings.Button("Quit", () => Application.Quit())
             );
 
         currentUis.Add(ui);
