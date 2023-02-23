@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6140642033360175049, guid: 99eab366e791b974aa7af7e4d4ab1d68, type: 3}
+      propertyPath: distacneFromObstacle
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6140642033360175050, guid: 99eab366e791b974aa7af7e4d4ab1d68, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -649,6 +653,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  score: 0
 --- !u!64 &1835547193
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -690,10 +695,15 @@ MonoBehaviour:
   poopsCleared_so: {fileID: 11400000, guid: dab1725fcb02d0e49914b3c6b6cb6b67, type: 2}
   minNumberOfPoops: 5
   maxNumberOfPoops: 20
+  minNumberOfRocks: 1
+  maxNumberOfRocks: 5
   rotationRange: 180
-  scaleRange: {x: 4, y: 4, z: 4}
+  poopScaleRange: {x: 4, y: 4, z: 4}
+  rockScaleRange: {x: 2, y: 2, z: 2}
+  distanceFromOtherObjects: 1.25
   yHeightOfMesh: -0.1
   poopPrefab: {fileID: 776133189407946464, guid: 8f32c4df1d36c18458f2ff3058fa91e6, type: 3}
+  rockPrefab: {fileID: 5011515487443108547, guid: 7b833ecab74c357438b62a0869affcf3, type: 3}
 --- !u!4 &2132304066 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 475266155783777558, guid: 71134c62c4fb1924a9f1658503a13f9c, type: 3}

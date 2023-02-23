@@ -12,6 +12,8 @@ public class TrowelController : Digger
     public float trowelDistanceFromCamera = 2.0f;
     public float trowelDrawPathDistanceFromCamera = 20f;
 
+    public float distacneFromObstacle = 1f;
+
     private bool aiming = false;
 
     private Vector3 positionTarget;
@@ -43,6 +45,14 @@ public class TrowelController : Digger
     {
         foreach (Diggable diggable in diggables)
         {
+            foreach (Obstacle obstacle in obstacles)
+            {
+                if (Vector3.Distance(trowel.transform.position.Horizontal(), obstacle.transform.position) < distacneFromObstacle)
+                {
+                    Debug.Log("Too close to obstacle");
+                    return;
+                }
+            }
             if (diggable != null)
                 diggable.TryDig(trowel.transform.position.Horizontal());
         }
