@@ -65,8 +65,6 @@ public class FinishGarden : MonoBehaviour
             cootsAnimationController.ChangeMaterial(CootsAnimationController.CootsMood.NAP);
             PlayAnimationBasedOnScoreAndMood();
             ShowCootsMoodUI();
-            //resetting here but need to put this in the start/restart logic
-            poopsCleared_so.Value = 0;
             this.DoAfter(showFinalMenuAfterTime, () => ShowFinishUI());
             finishing = false;
             finished = true;
