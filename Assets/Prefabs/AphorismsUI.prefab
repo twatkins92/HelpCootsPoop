@@ -137,8 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb3ce3212f331a5418a8d2bde24e0db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiYPos: 200
-  uiXPos: 50
+  uiYPos: 40
+  uiXPos: 10
   fadeAphorismAfterTime: 2
   uiSettings: {fileID: 11400000, guid: 6b33b69a37d0dcc449c89ee112ba5db6, type: 2}
   catCamera: {fileID: 156183659052657603}
@@ -150,12 +150,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 6909348941843476984}
     m_Modifications:
     - target: {fileID: 105450179, guid: 1864492b1fea4a648a74feb31147c11c, type: 3}
+      propertyPath: speed
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 105450179, guid: 1864492b1fea4a648a74feb31147c11c, type: 3}
       propertyPath: targetPos
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 105450179, guid: 1864492b1fea4a648a74feb31147c11c, type: 3}
       propertyPath: patrolPoints.Array.size
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 338504691108756497, guid: 1864492b1fea4a648a74feb31147c11c, type: 3}
       propertyPath: m_Name
