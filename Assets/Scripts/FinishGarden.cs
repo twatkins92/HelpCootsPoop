@@ -23,6 +23,8 @@ public class FinishGarden : MonoBehaviour
     private bool finishing = false;
     private bool poopsCleared = false;
 
+    private Coroutine awaitingFinalOptions = null;
+
     private Dictionary<CootsAnimationController.CootsMood, List<string>> cootsMoodToStringList =
         new Dictionary<CootsAnimationController.CootsMood, List<string>>();
 
@@ -61,10 +63,18 @@ public class FinishGarden : MonoBehaviour
             PlayAnimationBasedOnScoreAndMood();
         if (!poopsCleared && poopsCleared_so.Value == 0)
             ShowPoopsClearedUI();
+
+        if (awaitingFinalOptions != null && Input.anyKeyDown)
+        {
+            this.StopCoroutine(awaitingFinalOptions);
+            awaitingFinalOptions = null;
+            ShowFinishUI();
+        }
     }
 
     public void FinishGame()
     {
+        ClearFinishUI();
         bool cootsMoving = cootsAnimationController.GetCootsMoving();
 
         if (!cootsMoving)
@@ -73,7 +83,7 @@ public class FinishGarden : MonoBehaviour
             cootsAnimationController.ChangeMaterial(cootsMood);
             PlayAnimationBasedOnScoreAndMood();
             ShowCootsMoodUI();
-            this.DoAfter(showFinalMenuAfterTime, () => ShowFinishUI());
+            awaitingFinalOptions = this.DoAfter(showFinalMenuAfterTime, () => ShowFinishUI());
             finishing = false;
             finished = true;
         }
@@ -97,13 +107,17 @@ public class FinishGarden : MonoBehaviour
 
         var ui = uiSettings
             .MakeUi(AnchorUtil.BottomCentre(uiYPos))
-            .AddChildren(
-                uiSettings.Title("Creation Finished!"),
-                uiSettings.Text("Coots can poop freely!"),
-                uiSettings.Text(
-                    "Coots seems to be " + GetRandomStringFromList(cootsMoodToStringList[cootsMood])
-                )
-            );
+            .AddChildren(uiSettings.Title("Creation Finished!"));
+
+        if (cootsMood != CootsAnimationController.CootsMood.SCREAM)
+            ui.AddChildren(uiSettings.Text("Coots can poop freely!"), uiSettings.Text(""));
+
+        ui.AddChildren(
+            uiSettings.Text(
+                "Coots seems to be " + GetRandomStringFromList(cootsMoodToStringList[cootsMood])
+            ),
+            uiSettings.Text("")
+        );
 
         currentUI = ui;
     }
