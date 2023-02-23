@@ -155,7 +155,7 @@ public class FinishGarden : MonoBehaviour
                     "Clean Another?",
                     () => Transitions.Start("SimpleFade", "End2End")
                 ),
-                uiSettings.Button("Quit", () => Application.Quit())
+                uiSettings.Button("View your creation", () => CameraController.Instance.DefaultCamera())
             );
 
         Cursor.lockState = CursorLockMode.None;
