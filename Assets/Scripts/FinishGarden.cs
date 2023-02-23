@@ -23,7 +23,8 @@ public class FinishGarden : MonoBehaviour
     private bool finishing = false;
     private bool poopsCleared = false;
 
-    private Dictionary<CootsAnimationController.CootsMood, List<string>> cootsMoodToStringList = new Dictionary<CootsAnimationController.CootsMood, List<string>>();
+    private Dictionary<CootsAnimationController.CootsMood, List<string>> cootsMoodToStringList =
+        new Dictionary<CootsAnimationController.CootsMood, List<string>>();
 
     void Start()
     {
@@ -50,12 +51,16 @@ public class FinishGarden : MonoBehaviour
             finishing = true;
 
             TrowelController trowel = FindObjectOfType<TrowelController>();
-            if (trowel != null) Destroy(trowel);
+            if (trowel != null)
+                Destroy(trowel);
         }
 
-        if (finishing && !finished) FinishGame();
-        if (finished && Input.anyKey) PlayAnimationBasedOnScoreAndMood();
-        if (!poopsCleared && poopsCleared_so.Value == 0) ShowPoopsClearedUI();
+        if (finishing && !finished)
+            FinishGame();
+        if (finished && Input.anyKey)
+            PlayAnimationBasedOnScoreAndMood();
+        if (!poopsCleared && poopsCleared_so.Value == 0)
+            ShowPoopsClearedUI();
     }
 
     public void FinishGame()
@@ -77,9 +82,12 @@ public class FinishGarden : MonoBehaviour
     private void PlayAnimationBasedOnScoreAndMood()
     {
         string animation = "Jump";
-        if (cootsMood == CootsAnimationController.CootsMood.SCREAM) animation = screamAnimations[Random.Range(0, screamAnimations.Count*10)/10];
-        if (cootsMood == CootsAnimationController.CootsMood.NAP) animation = napAnimations[Random.Range(0, napAnimations.Count*10)/10];
-        if (cootsMood == CootsAnimationController.CootsMood.NEUTRAL) animation = neutralAnimations[Random.Range(0, neutralAnimations.Count*10)/10];
+        if (cootsMood == CootsAnimationController.CootsMood.SCREAM)
+            animation = screamAnimations[Random.Range(0, screamAnimations.Count * 10) / 10];
+        if (cootsMood == CootsAnimationController.CootsMood.NAP)
+            animation = napAnimations[Random.Range(0, napAnimations.Count * 10) / 10];
+        if (cootsMood == CootsAnimationController.CootsMood.NEUTRAL)
+            animation = neutralAnimations[Random.Range(0, neutralAnimations.Count * 10) / 10];
         cootsAnimationController.ChangeAnimationState(animation);
     }
 
@@ -90,9 +98,11 @@ public class FinishGarden : MonoBehaviour
         var ui = uiSettings
             .MakeUi(AnchorUtil.BottomCentre(uiYPos))
             .AddChildren(
-                uiSettings.Text("You've completed your garden"),
-                uiSettings.Text("Coots can poop freely"),
-                uiSettings.Text("Coots seems to be " + GetRandomStringFromList(cootsMoodToStringList[cootsMood]))
+                uiSettings.Title("Creation Finished!"),
+                uiSettings.Text("Coots can poop freely!"),
+                uiSettings.Text(
+                    "Coots seems to be " + GetRandomStringFromList(cootsMoodToStringList[cootsMood])
+                )
             );
 
         currentUI = ui;
@@ -106,14 +116,14 @@ public class FinishGarden : MonoBehaviour
         var ui = uiSettings
             .MakeUi(AnchorUtil.BottomCentre(uiYPos))
             .AddChildren(
-                uiSettings.Text("The poops are cleared"),
-                uiSettings.Text("feel free to keep brushing"),
-                uiSettings.Text("or hit [Enter] to finish up here")
+                uiSettings.Title("All poops cleared!"),
+                uiSettings.Text("Keep parting Litter, or,"),
+                uiSettings.Text("[Enter]: Finish your Creation.")
             );
-        
+
         currentUI = ui;
 
-        this.DoAfter(5f, () => ClearFinishUI());
+        this.DoAfter(10f, () => ClearFinishUI());
     }
 
     public void ShowFinishUI()
@@ -123,7 +133,10 @@ public class FinishGarden : MonoBehaviour
         var ui = uiSettings
             .MakeUi(AnchorUtil.BottomCentre(uiYPos))
             .AddChildren(
-                uiSettings.Button("Clean Another?", () => Transitions.Start("SimpleFade", "End2End")),
+                uiSettings.Button(
+                    "Clean Another?",
+                    () => Transitions.Start("SimpleFade", "End2End")
+                ),
                 uiSettings.Button("Quit", () => Application.Quit())
             );
 
@@ -144,23 +157,51 @@ public class FinishGarden : MonoBehaviour
 
     public CootsAnimationController.CootsMood FigureOutCootsMood()
     {
-        if (poopsCleared_so.Value > 0) return CootsAnimationController.CootsMood.SCREAM;
-        if (meshClicker.score < successfulScore) return CootsAnimationController.CootsMood.NEUTRAL;
-        else return CootsAnimationController.CootsMood.NAP;
+        if (poopsCleared_so.Value > 0)
+            return CootsAnimationController.CootsMood.SCREAM;
+        if (meshClicker.score < successfulScore)
+            return CootsAnimationController.CootsMood.NEUTRAL;
+        else
+            return CootsAnimationController.CootsMood.NAP;
     }
 
     private string GetRandomStringFromList(List<string> list)
     {
-        return list[Random.Range(0, list.Count*10)/10];
+        return list[Random.Range(0, list.Count * 10) / 10];
     }
 
-    private static readonly List<string> napSynonyms = new List<string> { "contented", "at one with himself", "on cloud nine", "as peaceful as could be", "ready for a nap" }; 
+    private static readonly List<string> napSynonyms = new List<string>
+    {
+        "contented",
+        "at one with himself",
+        "on cloud nine",
+        "as peaceful as could be",
+        "ready for a nap"
+    };
 
-    private static readonly List<string> neutralSynonyms = new List<string> { "neither here no there", "contemplating something greater", "done with your presence", "shy, so turn around" };
+    private static readonly List<string> neutralSynonyms = new List<string>
+    {
+        "neither here no there",
+        "contemplating something greater",
+        "done with your presence",
+        "shy, so turn around"
+    };
 
-    private static readonly List<string> screamSynonyms = new List<string> { "displeased", "disgusted" };
+    private static readonly List<string> screamSynonyms = new List<string>
+    {
+        "displeased",
+        "disgusted"
+    };
 
-    private static readonly List<string> neutralAnimations = new List<string> { "wriggle", "squat" };
+    private static readonly List<string> neutralAnimations = new List<string>
+    {
+        "wriggle",
+        "squat"
+    };
     private static readonly List<string> napAnimations = new List<string> { "Jump", "spin", "hop" };
-    private static readonly List<string> screamAnimations = new List<string> { "tantrum", "lookup" };
+    private static readonly List<string> screamAnimations = new List<string>
+    {
+        "tantrum",
+        "lookup"
+    };
 }

@@ -667,7 +667,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3663965913678298944, guid: e9974b3ff6edab041bbe07e1ece2464e, type: 3}
       propertyPath: showFinalMenuAfterTime
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4132769294206142756, guid: e9974b3ff6edab041bbe07e1ece2464e, type: 3}
       propertyPath: m_Name
