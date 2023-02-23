@@ -47,7 +47,7 @@ public class Menus : MonoBehaviour
             .MakeUi(AnchorUtil.Centre(0, -210))
             .AddChildren(
                 uiSettings.Title("Cat Litter Dry Garden"),
-                uiSettings.Button("Play", () => Transitions.Start("SimpleFade", "Game")),
+                uiSettings.Button("Play", () => Transitions.Start("SimpleFade", "End2End")),
                 /*uiSettings.Button(
                     "Options",
                     () => 
