@@ -82,7 +82,7 @@ public class GenerateLitterTray : MonoBehaviour
 
     private Vector3 GetPosition(float xRange, float zRange, Bounds bounds)
     {
-        int maxTries = 40;
+        int maxTries = 250;
         Vector3 position = Vector3.zero;
         
         for (int i = 0; i <= maxTries; i++)
@@ -101,6 +101,7 @@ public class GenerateLitterTray : MonoBehaviour
                 }
             }
         }
+        Debug.Log("settling for bad pos");
         return position;
     }
 
