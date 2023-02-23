@@ -629,7 +629,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiYPos: 40
   uiXPos: 10
-  fadeAphorismAfterTime: 2
+  aphorismVisibleTime: 7
+  aphorismCooldown: 3
   uiSettings: {fileID: 11400000, guid: 6b33b69a37d0dcc449c89ee112ba5db6, type: 2}
   catCamera: {fileID: 156183659052657603}
 --- !u!1001 &156183659246178561
