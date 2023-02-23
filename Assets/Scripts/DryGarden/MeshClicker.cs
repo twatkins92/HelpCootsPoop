@@ -62,6 +62,10 @@ public class MeshClicker : Diggable
 
     private List<Vector3> drawnPoints = new List<Vector3>();
 
+    private List<Tuple<float, Vector3>> historicalLines = new List<Tuple<float, Vector3>>();
+
+    public float score = 0;
+
     void Start()
     {
         mesh = GetComponent<MeshFilter>().mesh;
@@ -75,7 +79,10 @@ public class MeshClicker : Diggable
     {
         Vector3 zeroedIntersectPoint = vector.Horizontal();
         if (!mesh.bounds.Contains(zeroedIntersectPoint))
+        {
+            drawnPoints.Clear();
             return;
+        }
 
         if (drawnPoints.Count > 0 && Vector3.Distance(zeroedIntersectPoint, drawnPoints[^1]) < 0.1f)
             return;
@@ -118,8 +125,12 @@ public class MeshClicker : Diggable
                 };
                 RaiseVertices(brush);
 
+                score += 5;
+                Debug.Log(score);
+
                 //sorry for this jank call in lol
-                if (aphorismsUi != null) aphorismsUi.ShowAphorism();
+                if (aphorismsUi != null)
+                    aphorismsUi.ShowAphorism();
             }
         }
     }
