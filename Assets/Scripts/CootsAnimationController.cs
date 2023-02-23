@@ -11,24 +11,39 @@ public class CootsAnimationController : MonoBehaviour
     public Material neutralMaterial;
     public Material screamMaterial;
 
+    //this is the final pos for him to walk to
     public Transform targetPos;
     public float speed;
+
+    public List<Transform> patrolPoints = new List<Transform>();
+
+    //this is is his next place to go
+    private Transform nextPosition;
+    private int patrolPositionIndex = 0;
 
     private Dictionary<CootsMood, Material> materialByMood = new Dictionary<CootsMood, Material>();
     private Dictionary<int, string> currentState = new Dictionary<int, string>();
 
     public bool moving = false;
     public bool idling = true;
+    public bool patrolling = true;
 
     void Start()
     {
         materialByMood.Add(CootsMood.NEUTRAL, neutralMaterial);
         materialByMood.Add(CootsMood.NAP, napMaterial);
         materialByMood.Add(CootsMood.SCREAM, screamMaterial);
+
+        if (patrolling) nextPosition = patrolPoints[patrolPositionIndex];
     }
 
     void Update()
     {
+        if (patrolling)
+        {
+            Patrol();
+            return;
+        }
         if (!moving)
         {
             if (idling) IdleAnim();
@@ -39,10 +54,10 @@ public class CootsAnimationController : MonoBehaviour
 
     public void ChangeAnimationState(string newAnimationStateName, int layer = 0)
     {
-       if (animator.GetCurrentAnimatorStateInfo(layer).IsName(newAnimationStateName)) return;
+        if (animator.GetCurrentAnimatorStateInfo(layer).IsName(newAnimationStateName)) return;
 
-       animator.Play(newAnimationStateName, layer);
-       currentState[layer] = newAnimationStateName;
+        animator.Play(newAnimationStateName, layer);
+        currentState[layer] = newAnimationStateName;
     }
 
     public void ChangeMaterial(CootsMood cootsMood)
@@ -74,12 +89,32 @@ public class CootsAnimationController : MonoBehaviour
         }
     }
 
+    private void Patrol()
+    {
+        if (Vector3.Distance(this.transform.position, nextPosition.position) < 0.2f)
+        {
+            patrolPositionIndex++;
+            if (patrolPositionIndex > patrolPoints.Count-1) patrolPositionIndex = 0;
+            nextPosition = patrolPoints[patrolPositionIndex];
+            this.transform.LookAt(nextPosition);
+            patrolling = false;
+            ChangeAnimationState("Idle");
+            this.DoAfter(2.0f, () => patrolling = true);
+        }
+        else
+        {
+            ChangeAnimationState("walk");
+            this.transform.position = Vector3.Lerp(this.transform.position, nextPosition.position, 0.25f * Time.deltaTime);
+        }
+    }
+
     private void IdleAnim()
     {
-       if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
-       {
-           ChangeAnimationState(idleAnimationStates[Random.Range(0, idleAnimationStates.Count*10)/10]);
-       }
+        Debug.Log("Idle anim should play");
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+        {
+            ChangeAnimationState(idleAnimationStates[Random.Range(0, idleAnimationStates.Count*10)/10]);
+        }
     }
 
     public enum CootsMood

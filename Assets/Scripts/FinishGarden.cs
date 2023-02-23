@@ -45,6 +45,7 @@ public class FinishGarden : MonoBehaviour
             aphorismsUi.EnableCamera(false);
             CameraController.Instance.AimCamera();
             cootsAnimationController.ChangeAnimationState("Run");
+            cootsAnimationController.patrolling = false;
             cootsAnimationController.SetCootsMoving(true);
             finishing = true;
 
