@@ -134,10 +134,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6140642033360175049, guid: 99eab366e791b974aa7af7e4d4ab1d68, type: 3}
-      propertyPath: distacneFromObstacle
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6140642033360175050, guid: 99eab366e791b974aa7af7e4d4ab1d68, type: 3}
       propertyPath: m_RootOrder
       value: 4

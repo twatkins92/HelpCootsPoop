@@ -14,13 +14,19 @@ public class PoopController : Diggable
 
     public void ClearPoop()
     {
-        if (cleaned) return;
+        if (cleaned)
+            return;
         cleaned = true;
         poopsCleared_so.Value -= 1;
         SoundManager.PlaySound("PoopJingle");
         animator.Play("PoopCleared");
         //trigger poop cleared animation
         this.DoAfter(2, () => Destroy(this.gameObject));
+    }
+
+    public override void FailDig()
+    {
+        //nothing lol
     }
 
     public override void TryDig(Vector3 vector)

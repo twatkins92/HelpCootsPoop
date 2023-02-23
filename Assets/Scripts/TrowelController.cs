@@ -45,16 +45,24 @@ public class TrowelController : Digger
     {
         foreach (Diggable diggable in diggables)
         {
+            bool fail = false;
             foreach (Obstacle obstacle in obstacles)
             {
-                if (Vector3.Distance(trowel.transform.position.Horizontal(), obstacle.transform.position) < distacneFromObstacle)
+                if (
+                    Vector3.Distance(
+                        trowel.transform.position.Horizontal(),
+                        obstacle.transform.position
+                    ) < distacneFromObstacle
+                )
                 {
-                    Debug.Log("Too close to obstacle");
-                    return;
+                    //Debug.Log("Too close to obstacle");
+                    fail = true;
                 }
             }
-            if (diggable != null)
+            if (diggable != null && !fail)
                 diggable.TryDig(trowel.transform.position.Horizontal());
+            else if (diggable != null && fail)
+                diggable.FailDig();
         }
     }
 

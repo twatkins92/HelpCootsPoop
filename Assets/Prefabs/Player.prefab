@@ -49,10 +49,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trowel: {fileID: 5038958881265332511}
   useLerpForTrowelMovement: 1
-  trowelMoveSpeedNormal: 4
-  trowelMoveSpeedAiming: 1
+  trowlLerpStepRatio: 0.1
   trowelDistanceFromCamera: 0.5
   trowelDrawPathDistanceFromCamera: 20
+  distacneFromObstacle: 1
 --- !u!114 &5425382161113297938
 MonoBehaviour:
   m_ObjectHideFlags: 0

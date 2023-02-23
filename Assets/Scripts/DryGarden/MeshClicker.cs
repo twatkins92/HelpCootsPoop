@@ -85,6 +85,12 @@ public class MeshClicker : Diggable
         sandSource.volume = 0;
     }
 
+    public override void FailDig()
+    {
+        Debug.Log("Clearing points");
+        drawnPoints.Clear();
+    }
+
     public override void TryDig(Vector3 vector)
     {
         Vector3 zeroedIntersectPoint = vector.Horizontal();
