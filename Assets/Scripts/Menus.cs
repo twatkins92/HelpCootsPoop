@@ -44,14 +44,52 @@ public class Menus : MonoBehaviour
     {
         //TODO - Change the main menu!
         var ui = uiSettings
-            .MakeUi(AnchorUtil.Centre(0, -200))
+            .MakeUi(AnchorUtil.Centre(0, -210))
             .AddChildren(
                 uiSettings.Title("Cat Litter Dry Garden"),
                 uiSettings.Button("Play", () => Transitions.Start("SimpleFade", "Game")),
-                uiSettings.Button("Options", () => OptionsMenu(() => { })),
+                uiSettings.Button(
+                    "Options",
+                    () => 
+                    {
+                        ClearMenus();
+                        OptionsMenu(() => MainMenu());
+                    }
+                ),
+                uiSettings.Button(
+                    "Credits",
+                    () => 
+                    {
+                        ClearMenus();
+                        Credits();
+                    }
+                ),
                 uiSettings.Button("Quit", () => Application.Quit())
             );
 
+        currentUis.Add(ui);
+    }
+
+    public void Credits()
+    {
+        var ui = uiSettings
+            .MakeUi(AnchorUtil.Centre(0, 0))
+            .AddChildren(
+                uiSettings.Text("A Game By"),
+                uiSettings.Text("Alex Hetherington"),
+                uiSettings.Text("Thomas Watkins"),
+                uiSettings.Text("With additonal work by"),
+                uiSettings.Text("Paul Daulby"),
+                uiSettings.Button(
+                    "Back",
+                    () =>
+                    {
+                        ClearMenus();
+                        MainMenu();
+                    }
+                )
+            );
+        
         currentUis.Add(ui);
     }
 
