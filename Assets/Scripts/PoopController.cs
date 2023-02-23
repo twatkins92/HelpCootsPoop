@@ -8,9 +8,12 @@ public class PoopController : Diggable
     public IntVariable poopsCleared_so;
     public float clearRange = 0.1f;
 
+    private bool cleaned = false;
+
     public void ClearPoop()
     {
-        GetComponentInChildren<MeshCollider>().enabled = false;
+        if (cleaned) return;
+        cleaned = true;
         poopsCleared_so.Value += 1;
         //trigger poop cleared animation
         this.DoAfter(2, () => Destroy(this.gameObject));
